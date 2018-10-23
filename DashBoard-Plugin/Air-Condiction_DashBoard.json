@@ -1,0 +1,895 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 14,
+    "links": [],
+    "panels": [
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#1f78c1",
+          "#d44a3a"
+        ],
+        "datasource": "MongoDB",
+        "format": "celsius",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 8,
+          "x": 0,
+          "y": 0
+        },
+        "id": 6,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "100%",
+        "prefix": "出風口溫度 : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "hide": false,
+            "rawQuery": true,
+            "refId": "A",
+            "target": "db.air_conditioner_vent.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :1},\n{\"$project\" : {\"name\" : \"Temperature\", \"value\" : \"$Temperature\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "type": "timeserie"
+          }
+        ],
+        "thresholds": "",
+        "title": "air_condiction-Temperature",
+        "type": "singlestat",
+        "valueFontSize": "150%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "avg"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#e5a8e2",
+          "#d44a3a"
+        ],
+        "datasource": "MongoDB",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 8,
+          "x": 8,
+          "y": 0
+        },
+        "id": 7,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " %RH",
+        "postfixFontSize": "150%",
+        "prefix": "出風口濕度 : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "hide": false,
+            "rawQuery": true,
+            "refId": "A",
+            "target": "db.air_conditioner_vent.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :1},\n{\"$project\" : {\"name\" : \"Humidity\", \"value\" : \"$Humidity\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "type": "timeserie"
+          }
+        ],
+        "thresholds": "",
+        "title": "air_condiction-Humidity",
+        "type": "singlestat",
+        "valueFontSize": "150%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "avg"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": null,
+        "format": "amp",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 8,
+          "x": 16,
+          "y": 0
+        },
+        "id": 4,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "100%",
+        "prefix": "冷氣消耗電流 : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "rawQuery": true,
+            "refId": "A",
+            "target": "db.current.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :1},\n{\"$project\" : {\"name\" : \"currents\", \"value\" : \"$currents\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "type": "timeserie"
+          }
+        ],
+        "thresholds": "",
+        "title": "Ait_condition-Currents",
+        "type": "singlestat",
+        "valueFontSize": "150%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": null,
+        "format": "celsius",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 12,
+          "x": 0,
+          "y": 5
+        },
+        "id": 17,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "100%",
+        "prefix": "偵測節點溫度 : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "hide": false,
+            "rawQuery": true,
+            "refId": "A",
+            "target": "db.current.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :1},\n{\"$project\" : {\"name\" : \"Temperature\", \"value\" : \"$Temperature\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "type": "timeserie"
+          }
+        ],
+        "thresholds": "",
+        "title": "偵測節點溫度",
+        "type": "singlestat",
+        "valueFontSize": "150%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#806eb7",
+          "#d44a3a"
+        ],
+        "datasource": null,
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 12,
+          "x": 12,
+          "y": 5
+        },
+        "id": 18,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " %RH",
+        "postfixFontSize": "150%",
+        "prefix": "偵測節點濕度 : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "$$hashKey": "object:353",
+            "hide": false,
+            "rawQuery": true,
+            "refId": "A",
+            "target": "db.current.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :1},\n{\"$project\" : {\"name\" : \"Humi\", \"value\" : \"$Humidity\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "type": "timeserie"
+          }
+        ],
+        "thresholds": "",
+        "title": "偵測節點濕度",
+        "type": "singlestat",
+        "valueFontSize": "150%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "aliasColors": {
+          "currents": "#f4d598"
+        },
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "MongoDB",
+        "fill": 3,
+        "gridPos": {
+          "h": 13,
+          "w": 20,
+          "x": 0,
+          "y": 10
+        },
+        "id": 2,
+        "legend": {
+          "alignAsTable": false,
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "rightSide": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "percentage": false,
+        "pointradius": 2,
+        "points": true,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "hide": false,
+            "rawQuery": true,
+            "refId": "A",
+            "target": "db.current.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :500},\n{\"$project\" : {\"name\" : \"currents\", \"value\" : \"$currents\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "type": "timeserie"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": "10m",
+        "timeShift": null,
+        "title": "Air-condiction_Current(歷史電流表單)",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "amp",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "columns": [],
+        "datasource": "MongoDB",
+        "fontSize": "90%",
+        "gridPos": {
+          "h": 13,
+          "w": 4,
+          "x": 20,
+          "y": 10
+        },
+        "id": 9,
+        "links": [],
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "date"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "rawQuery": true,
+            "refId": "A",
+            "target": "db.current.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :15},\n{\"$project\" : {\"name\" : \"currents\", \"value\" : \"$currents\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "type": "timeserie"
+          }
+        ],
+        "title": "最新10筆電流資料",
+        "transform": "timeseries_to_columns",
+        "type": "table"
+      },
+      {
+        "aliasColors": {
+          "currents": "#f4d598"
+        },
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "MongoDB",
+        "fill": 3,
+        "gridPos": {
+          "h": 13,
+          "w": 20,
+          "x": 0,
+          "y": 23
+        },
+        "id": 20,
+        "legend": {
+          "alignAsTable": false,
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "rightSide": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "percentage": false,
+        "pointradius": 2,
+        "points": true,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "$$hashKey": "object:592",
+            "hide": false,
+            "rawQuery": true,
+            "refId": "A",
+            "target": "db.current.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :500},\n{\"$project\" : {\"name\" : \"Temperature\", \"value\" : \"$Temperature\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "type": "timeserie"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": "10m",
+        "timeShift": null,
+        "title": "Air-condiction_Temperature(歷史溫度表單)",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "amp",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "columns": [],
+        "datasource": "MongoDB",
+        "fontSize": "90%",
+        "gridPos": {
+          "h": 13,
+          "w": 4,
+          "x": 20,
+          "y": 23
+        },
+        "id": 13,
+        "links": [],
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "date"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "$$hashKey": "object:517",
+            "rawQuery": true,
+            "refId": "A",
+            "target": "db.air_conditioner_vent.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :15},\n{\"$project\" : {\"name\" : \"Temperature\", \"value\" : \"$Temperature\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "type": "timeserie"
+          }
+        ],
+        "title": "最新15筆溫度資料",
+        "transform": "timeseries_to_columns",
+        "type": "table"
+      },
+      {
+        "aliasColors": {
+          "Humidity": "#ba43a9",
+          "currents": "#f4d598"
+        },
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "MongoDB",
+        "fill": 3,
+        "gridPos": {
+          "h": 13,
+          "w": 20,
+          "x": 0,
+          "y": 36
+        },
+        "id": 19,
+        "legend": {
+          "alignAsTable": false,
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "rightSide": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "percentage": false,
+        "pointradius": 2,
+        "points": true,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "$$hashKey": "object:1024",
+            "hide": false,
+            "rawQuery": true,
+            "refId": "A",
+            "target": "db.current.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :500},\n{\"$project\" : {\"name\" : \"Humidity\", \"value\" : \"$Humidity\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "type": "timeserie"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": "10m",
+        "timeShift": null,
+        "title": "Air-condiction_Current(歷史濕度表單)",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "amp",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "columns": [],
+        "datasource": "MongoDB",
+        "fontSize": "90%",
+        "gridPos": {
+          "h": 13,
+          "w": 4,
+          "x": 20,
+          "y": 36
+        },
+        "id": 15,
+        "links": [],
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "date"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "$$hashKey": "object:939",
+            "rawQuery": true,
+            "refId": "A",
+            "target": "db.air_conditioner_vent.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :15},\n{\"$project\" : {\"name\" : \"Humidity\", \"value\" : \"$Humidity\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "type": "timeserie"
+          }
+        ],
+        "title": "最新15筆濕度資料",
+        "transform": "timeseries_to_columns",
+        "type": "table"
+      }
+    ],
+    "refresh": false,
+    "schemaVersion": 16,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "2018-10-23T10:33:22.059Z",
+      "to": "2018-10-23T10:34:28.773Z"
+    },
+    "timepicker": {
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ]
+    },
+    "timezone": "",
+    "title": "Air_Condiction-DashBoard",
+    "uid": "7fgJqWmgk",
+    "version": 22
+  }

@@ -1,0 +1,27 @@
+################################ 
+# Design By j13tw@yahoo.com.tw #
+# Create Date : 2018 - 10 - 23 # 
+################################
+
+1. cp mongodb-grafana dir to "/etc/lib/grafana/plugins/"
+---> sudo cp mongodb-grafana/ /etc/lib/grafana/plugins/
+2. install nvm by step
+---> curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+---> nvm install stable
+---> nvm use stable
+3. check nodejs version is up to 6.10 or more high than it
+---> node -v
+4. check npm is useable and it can install modules
+---> npm -v
+5. cd to /lib/grafana/plugins/mongodb-grafana
+---> sudo cd /lib/grafana/plugins/mongodb-grafana
+6. install the package module use npm method
+---> npm install
+7. make the nodejs server to link database and grafana web service
+---> npm run server 
+8. restart the grafana to link the plugin
+---> sudo service grafana-server restart
+9. add the mongodb database link in DataSocurce
+ |-- http-link : localhost:3333
+
+#mongoDB-Plugin is on git hub : https://github.com/JamesOsgood/mongodb-grafana

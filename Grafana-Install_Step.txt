@@ -1,0 +1,30 @@
+################################ 
+# Design By j13tw@yahoo.com.tw #
+# Create Date : 2018 - 10 - 23 # 
+################################
+
+1. make a swap space like 4GB
+---> fallocate -l 4G /swapfile
+---> chmod 600 /swapfile
+---> mkswap /swapfile
+---> swapon /swapfile
+---> vi /etc/fstab
+add this line in file end line	
+---> /swapfile   swap    swap    sw  0   0
+# link : https://www.phpini.com/linux/linux-add-swap
+2. Install some packages and add the bintray pubkey to the apt keyring
+---> sudo apt-get install apt-transport-https curl 
+---> curl https://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
+3. Update your apt source (Raspberry Pi 2 / 3)
+--> echo "deb https://dl.bintray.com/fg2it/deb jessie main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+4. Update your device and install grafana
+---> sudo apt-get update
+---> sudo apt-get install grafana
+5. Start the grafana service
+---> sudo service grafana-server start
+6. Start grafana in your system boot up time 
+---> sudo update-rc.d grafana-server defaults
+7. Open Browser keyin localhost:3000 to login Grafana Monitor
+ |- User : admin
+ |- PWD  : admin
+# link : https://www.circuits.dk/install-grafana-influxdb-raspberry/ 

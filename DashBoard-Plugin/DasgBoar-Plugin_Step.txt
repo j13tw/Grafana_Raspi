@@ -1,0 +1,9 @@
+################################ 
+# Design By j13tw@yahoo.com.tw #
+# Create Date : 2018 - 10 - 23 # 
+################################
+
+1. import the dashboard file in import method by File
+2. choose your database (make a dashboard after you create the datasource)
+3. create the dashboard render and change your SQL find file method
+4. change your dashboard reload data time and store the dashboard
