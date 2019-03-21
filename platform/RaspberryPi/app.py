@@ -1,0 +1,15 @@
+import os, sys
+
+os.system("apt-get update -y")
+os.system("fallocate -l 4G /swapfile")
+os.system("chmod 600 /swapfile")
+os.system("mkswap /swapfile")
+os.system("swapon /swapfile")
+os.system('exch "/swapfile   swap    swap    sw  0   0" >> /etc/fstab')
+os.system("apt-get install -y apt-transport-https curl")
+os.system("curl https://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -")
+os.system("apt-get update -y")
+os.system("apt-get install -y grafana")
+os.system("service grafana-server start")
+os.system("update-rc.d grafana-server defaults")
+os.system("service grafana-server status")
