@@ -4,7 +4,7 @@ import datetime
 import json
 
 # define Mysql status
-mysql_host = "127.0.0.1"
+mysql_host = "10.20.0.23"
 mysql_port = 3306
 mysql_db = "factory"
 mysql_user = "imac"
@@ -43,10 +43,11 @@ def on_message(client, userdata, msg):
     data = msg.payload.decode('utf-8')
     time_stamp = datetime.datetime.now()
     print(time_stamp)
+    print(data)
     if topic == "DL303/CO2":
         try:
             # Insert DL-303_CO2 Table
-            # print('INSERT INTO DL303_CO2(Time_Stamp, Co2) VALUE ("' + str(time_stamp) + '", ' + str(data) + ');')
+            print('INSERT INTO DL303_CO2(Time_Stamp, Co2) VALUE ("' + str(time_stamp) + '", ' + str(data) + ');')
             cur.execute('INSERT INTO DL303_CO2 \
                         (Time_Stamp, Co2) \
                         VALUE \
@@ -68,7 +69,7 @@ def on_message(client, userdata, msg):
     if topic == "DL303/TC":
         try:
             # Insert DL-303_TC Table
-            # print('INSERT INTO DL303_TC(Time_Stamp, Temp) VALUE ("' + str(time_stamp) + '", ' + str(data) + ');')
+            print('INSERT INTO DL303_TC(Time_Stamp, Temp) VALUE ("' + str(time_stamp) + '", ' + str(data) + ');')
             cur.execute('INSERT INTO DL303_TC \
                         (Time_Stamp, Temp) \
                         VALUE \

@@ -1,7 +1,7 @@
 import MySQLdb
 
 # define Mysql status
-mysql_host = "127.0.0.1"
+mysql_host = "10.20.0.23"
 mysql_port = 3306
 mysql_db = "factory"
 mysql_user = "imac"
@@ -34,7 +34,7 @@ try:
         cur.execute('CREATE TABLE DL303_CO2 (\
                         Count_Log   int AUTO_INCREMENT, \
                         Time_Stamp  datetime NOT NULL, \
-                        Co2         float(5, 2) NOT NULL, \
+                        Co2         float(6, 2) NOT NULL, \
                         PRIMARY KEY(Count_Log));')
         print("Create DL303_CO2 Table")
     except:
@@ -87,8 +87,8 @@ try:
     except:
         print("Create ET7044 Table Fail !")
     try:
-        # Create Air_Coundiction Table
-        cur.execute('CREATE TABLE Air_Coundiction (\
+        # Create Air_Condiction Table
+        cur.execute('CREATE TABLE Air_Condiction (\
                         Count_Log   int AUTO_INCREMENT, \
                         Time_Stamp  datetime NOT NULL, \
                         Humi        float(5, 2) NOT NULL, \

@@ -1,7 +1,7 @@
 import MySQLdb
 
 # define Mysql status
-mysql_host = "127.0.0.1"
+mysql_host = "10.20.0.23"
 mysql_port = 3306
 mysql_db = "factory"
 mysql_user = "imac"
@@ -54,9 +54,9 @@ try:
     except:
         print("Delete ET-7044 Table Fail !")
     try:
-        # Delete Air_Coundiction Table
+        # Delete Air_Condiction Table
         print("Delete Air_Condiction Table")
-        cur.execute('DROP TABLE Air_Coundiction;')
+        cur.execute('DROP TABLE Air_Condiction;')
     except:
         print("Delete Air_Condiction Table Fail !")
     try:
