@@ -4,7 +4,7 @@ import datetime
 import json
 
 # define Mysql status
-mysql_host = "10.20.0.23"
+mysql_host = "127.0.0.1"
 mysql_port = 3306
 mysql_db = "factory"
 mysql_user = "imac"
@@ -193,7 +193,7 @@ def on_message(client, userdata, msg):
         nextBattery_Day_B = nextBattery_B['nextBattery_Day_B']
         # Insert UPS_A Table
         print("INSERT INTO UPS_B Table")
-        cur.execute('INSERT INTO UPS_A \
+        cur.execute('INSERT INTO UPS_B \
                     (Time_Stamp, Device_Locate, Device_Life, System_Mode, \
                     Input_Line, Input_Freq, Input_Volt, \
                     Output_Line, Output_Freq, Output_Volt, Output_Amp, Output_Watt, Output_Percent, \
