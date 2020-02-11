@@ -43,7 +43,7 @@
           "x": 0,
           "y": 0
         },
-        "id": null,
+        "id": 2,
         "interval": null,
         "links": [],
         "mappingType": 1,
@@ -60,6 +60,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": "",
         "postfixFontSize": "50%",
         "prefix": "Status : ",
@@ -151,7 +152,7 @@
           "x": 6,
           "y": 0
         },
-        "id": null,
+        "id": 3,
         "interval": null,
         "links": [],
         "mappingType": 1,
@@ -168,6 +169,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": "",
         "postfixFontSize": "50%",
         "prefix": "Status : ",
@@ -191,7 +193,7 @@
             "format": "time_series",
             "group": [],
             "metricColumn": "none",
-            "rawQuery": false,
+            "rawQuery": true,
             "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  SW2\nFROM ET7044\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
             "refId": "A",
             "select": [
@@ -244,6 +246,7 @@
           "rgba(237, 129, 40, 0.89)",
           "#d44a3a"
         ],
+        "datasource": "MySQL",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -258,7 +261,7 @@
           "x": 12,
           "y": 0
         },
-        "id": null,
+        "id": 9,
         "interval": null,
         "links": [],
         "mappingType": 1,
@@ -275,6 +278,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": "",
         "postfixFontSize": "50%",
         "prefix": "Status : ",
@@ -299,13 +303,13 @@
             "group": [],
             "metricColumn": "none",
             "rawQuery": false,
-            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  SW3\nFROM ET7044\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  SW2\nFROM ET7044\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
             "refId": "A",
             "select": [
               [
                 {
                   "params": [
-                    "SW3"
+                    "SW2"
                   ],
                   "type": "column"
                 }
@@ -366,7 +370,7 @@
           "x": 18,
           "y": 0
         },
-        "id": null,
+        "id": 8,
         "interval": null,
         "links": [],
         "mappingType": 1,
@@ -383,6 +387,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": "",
         "postfixFontSize": "50%",
         "prefix": "Status : ",
@@ -461,8 +466,9 @@
           "y": 4
         },
         "hideTimeOverride": false,
-        "id": null,
+        "id": 11,
         "links": [],
+        "options": {},
         "pageSize": null,
         "scroll": true,
         "showHeader": true,
@@ -515,8 +521,9 @@
           "x": 6,
           "y": 4
         },
-        "id": null,
+        "id": 12,
         "links": [],
+        "options": {},
         "pageSize": null,
         "scroll": true,
         "showHeader": true,
@@ -527,12 +534,14 @@
         "styles": [
           {
             "alias": "Time",
+            "align": "auto",
             "dateFormat": "YYYY-MM-DD HH:mm:ss",
             "pattern": "Time",
             "type": "date"
           },
           {
             "alias": "",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -590,8 +599,9 @@
           "x": 12,
           "y": 4
         },
-        "id": null,
+        "id": 13,
         "links": [],
+        "options": {},
         "pageSize": null,
         "scroll": true,
         "showHeader": true,
@@ -644,8 +654,9 @@
           "x": 18,
           "y": 4
         },
-        "id": null,
+        "id": 14,
         "links": [],
+        "options": {},
         "pageSize": null,
         "scroll": true,
         "showHeader": true,
@@ -656,12 +667,14 @@
         "styles": [
           {
             "alias": "Time",
+            "align": "auto",
             "dateFormat": "YYYY-MM-DD HH:mm:ss",
             "pattern": "Time",
             "type": "date"
           },
           {
             "alias": "",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -733,7 +746,7 @@
           "x": 0,
           "y": 10
         },
-        "id": null,
+        "id": 4,
         "interval": null,
         "links": [],
         "mappingType": 1,
@@ -750,6 +763,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": "",
         "postfixFontSize": "50%",
         "prefix": "Status : ",
@@ -841,7 +855,7 @@
           "x": 6,
           "y": 10
         },
-        "id": null,
+        "id": 7,
         "interval": null,
         "links": [],
         "mappingType": 1,
@@ -858,6 +872,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": "",
         "postfixFontSize": "50%",
         "prefix": "Status : ",
@@ -949,7 +964,7 @@
           "x": 12,
           "y": 10
         },
-        "id": null,
+        "id": 5,
         "interval": null,
         "links": [],
         "mappingType": 1,
@@ -966,6 +981,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": "",
         "postfixFontSize": "50%",
         "prefix": "Status : ",
@@ -1057,7 +1073,7 @@
           "x": 18,
           "y": 10
         },
-        "id": null,
+        "id": 6,
         "interval": null,
         "links": [],
         "mappingType": 1,
@@ -1074,6 +1090,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": "",
         "postfixFontSize": "50%",
         "prefix": "Status : ",
@@ -1153,6 +1170,7 @@
         },
         "id": 15,
         "links": [],
+        "options": {},
         "pageSize": null,
         "scroll": true,
         "showHeader": true,
@@ -1163,12 +1181,14 @@
         "styles": [
           {
             "alias": "Time",
+            "align": "auto",
             "dateFormat": "YYYY-MM-DD HH:mm:ss",
             "pattern": "Time",
             "type": "date"
           },
           {
             "alias": "",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -1228,6 +1248,7 @@
         },
         "id": 16,
         "links": [],
+        "options": {},
         "pageSize": null,
         "scroll": true,
         "showHeader": true,
@@ -1238,12 +1259,14 @@
         "styles": [
           {
             "alias": "Time",
+            "align": "auto",
             "dateFormat": "YYYY-MM-DD HH:mm:ss",
             "pattern": "Time",
             "type": "date"
           },
           {
             "alias": "",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -1303,6 +1326,7 @@
         },
         "id": 17,
         "links": [],
+        "options": {},
         "pageSize": null,
         "scroll": true,
         "showHeader": true,
@@ -1313,12 +1337,14 @@
         "styles": [
           {
             "alias": "Time",
+            "align": "auto",
             "dateFormat": "YYYY-MM-DD HH:mm:ss",
             "pattern": "Time",
             "type": "date"
           },
           {
             "alias": "",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -1378,6 +1404,7 @@
         },
         "id": 18,
         "links": [],
+        "options": {},
         "pageSize": null,
         "scroll": true,
         "showHeader": true,
@@ -1388,12 +1415,14 @@
         "styles": [
           {
             "alias": "Time",
+            "align": "auto",
             "dateFormat": "YYYY-MM-DD HH:mm:ss",
             "pattern": "Time",
             "type": "date"
           },
           {
             "alias": "",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -1444,7 +1473,7 @@
       }
     ],
     "refresh": "5s",
-    "schemaVersion": 18,
+    "schemaVersion": 22,
     "style": "dark",
     "tags": [],
     "templating": {

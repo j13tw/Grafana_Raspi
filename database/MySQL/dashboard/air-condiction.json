@@ -60,6 +60,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": "",
         "postfixFontSize": "100%",
         "prefix": "出風口溫度 : ",
@@ -162,6 +163,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": " %RH",
         "postfixFontSize": "150%",
         "prefix": "出風口濕度 : ",
@@ -232,6 +234,8 @@
           "rgba(237, 129, 40, 0.89)",
           "#d44a3a"
         ],
+        "datasource": "MySQL",
+        "decimals": 2,
         "format": "amp",
         "gauge": {
           "maxValue": 100,
@@ -263,6 +267,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": "",
         "postfixFontSize": "100%",
         "prefix": "冷氣消耗電流 : ",
@@ -286,8 +291,8 @@
             "format": "time_series",
             "group": [],
             "metricColumn": "none",
-            "rawQuery": false,
-            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Current\nFROM Power_Meter\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "rawQuery": true,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Current\nFROM Power_Meter\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp desc\nlimit 1",
             "refId": "A",
             "select": [
               [
@@ -333,6 +338,8 @@
           "rgba(237, 129, 40, 0.89)",
           "#d44a3a"
         ],
+        "datasource": "MySQL",
+        "decimals": 1,
         "format": "celsius",
         "gauge": {
           "maxValue": 100,
@@ -364,6 +371,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": "",
         "postfixFontSize": "100%",
         "prefix": "偵測節點溫度 : ",
@@ -434,6 +442,8 @@
           "#806eb7",
           "#d44a3a"
         ],
+        "datasource": "MySQL",
+        "decimals": 1,
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -465,6 +475,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": " %RH",
         "postfixFontSize": "150%",
         "prefix": "偵測節點濕度 : ",
@@ -536,12 +547,14 @@
         "dashes": false,
         "datasource": "MySQL",
         "fill": 3,
+        "fillGradient": 0,
         "gridPos": {
           "h": 8,
           "w": 20,
           "x": 0,
           "y": 8
         },
+        "hiddenSeries": false,
         "id": 2,
         "legend": {
           "alignAsTable": false,
@@ -558,6 +571,9 @@
         "linewidth": 1,
         "links": [],
         "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
         "paceLength": 10,
         "percentage": false,
         "pointradius": 2,
@@ -650,6 +666,7 @@
         },
         "id": 9,
         "links": [],
+        "options": {},
         "pageSize": null,
         "scroll": true,
         "showHeader": true,
@@ -660,12 +677,14 @@
         "styles": [
           {
             "alias": "Time",
+            "align": "auto",
             "dateFormat": "YYYY-MM-DD HH:mm:ss",
             "pattern": "Time",
             "type": "date"
           },
           {
             "alias": "",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -723,12 +742,14 @@
         "dashes": false,
         "datasource": "MySQL",
         "fill": 2,
+        "fillGradient": 0,
         "gridPos": {
           "h": 8,
           "w": 20,
           "x": 0,
           "y": 16
         },
+        "hiddenSeries": false,
         "id": 20,
         "legend": {
           "alignAsTable": false,
@@ -745,6 +766,9 @@
         "linewidth": 1,
         "links": [],
         "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
         "paceLength": 10,
         "percentage": false,
         "pointradius": 1,
@@ -837,22 +861,26 @@
         },
         "id": 13,
         "links": [],
+        "options": {},
         "pageSize": null,
         "scroll": true,
         "showHeader": true,
         "sort": {
-          "col": 0,
+          "col": 1,
           "desc": true
         },
         "styles": [
           {
             "alias": "Time",
+            "align": "auto",
             "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "link": false,
             "pattern": "Time",
             "type": "date"
           },
           {
             "alias": "",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -911,12 +939,14 @@
         "dashes": false,
         "datasource": "MySQL",
         "fill": 3,
+        "fillGradient": 0,
         "gridPos": {
           "h": 8,
           "w": 20,
           "x": 0,
           "y": 24
         },
+        "hiddenSeries": false,
         "id": 19,
         "legend": {
           "alignAsTable": false,
@@ -933,6 +963,9 @@
         "linewidth": 1,
         "links": [],
         "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
         "paceLength": 10,
         "percentage": false,
         "pointradius": 2,
@@ -1025,6 +1058,7 @@
         },
         "id": 15,
         "links": [],
+        "options": {},
         "pageSize": null,
         "scroll": true,
         "showHeader": true,
@@ -1035,12 +1069,14 @@
         "styles": [
           {
             "alias": "Time",
+            "align": "auto",
             "dateFormat": "YYYY-MM-DD HH:mm:ss",
             "pattern": "Time",
             "type": "date"
           },
           {
             "alias": "",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -1090,7 +1126,7 @@
       }
     ],
     "refresh": "5s",
-    "schemaVersion": 18,
+    "schemaVersion": 22,
     "style": "dark",
     "tags": [],
     "templating": {
@@ -1128,7 +1164,7 @@
     "timezone": "",
     "title": "冷氣出風口",
     "uid": null,
-    "version": 0
+    "version": 2
   },
   "folderId": 0,
   "overwrite": false

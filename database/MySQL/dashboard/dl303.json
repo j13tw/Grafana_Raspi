@@ -29,7 +29,7 @@
           "#d44a3a"
         ],
         "datasource": "MySQL",
-        "decimals": null,
+        "decimals": 1,
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -86,7 +86,7 @@
             "group": [],
             "hide": false,
             "metricColumn": "none",
-            "rawQuery": false,
+            "rawQuery": true,
             "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Temp AS \"Count_Log\"\nFROM DL303_TC\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
             "refId": "A",
             "select": [
@@ -143,6 +143,7 @@
           "#d44a3a"
         ],
         "datasource": "MySQL",
+        "decimals": 1,
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -198,8 +199,8 @@
             "format": "time_series",
             "group": [],
             "metricColumn": "none",
-            "rawQuery": false,
-            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Humi\nFROM DL303_RH\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "rawQuery": true,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Humi\nFROM DL303_RH\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp desc\nlimit 1",
             "refId": "A",
             "select": [
               [
@@ -302,8 +303,8 @@
             "format": "time_series",
             "group": [],
             "metricColumn": "none",
-            "rawQuery": false,
-            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Co2\nFROM DL303_CO2\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "rawQuery": true,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  CO2\nFROM DL303_CO2\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp desc\nlimit 1",
             "refId": "A",
             "select": [
               [
@@ -351,6 +352,7 @@
           "#d44a3a"
         ],
         "datasource": "MySQL",
+        "decimals": 1,
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -406,8 +408,8 @@
             "format": "time_series",
             "group": [],
             "metricColumn": "none",
-            "rawQuery": false,
-            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Dew_Point\nFROM DL303_DC\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "rawQuery": true,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Dew_Point\nFROM DL303_DC\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp desc\nlimit 1",
             "refId": "A",
             "select": [
               [
@@ -644,7 +646,7 @@
       },
       {
         "aliasColors": {
-          "Humi": "#82b5d8"
+          "Humi": "dark-blue"
         },
         "bars": false,
         "dashLength": 10,
@@ -695,7 +697,7 @@
             "format": "time_series",
             "group": [],
             "metricColumn": "none",
-            "rawQuery": false,
+            "rawQuery": true,
             "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Humi\nFROM DL303_RH\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
             "refId": "A",
             "select": [
@@ -763,7 +765,7 @@
       },
       {
         "columns": [],
-        "datasource": null,
+        "datasource": "MySQL",
         "fontSize": "90%",
         "gridPos": {
           "h": 7,
@@ -823,9 +825,7 @@
                 }
               ]
             ],
-            "target": "db.DL303_RH.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"Humi\", \"value\" : \"$data\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
             "timeColumn": "time",
-            "type": "timeserie",
             "where": [
               {
                 "name": "$__timeFilter",
@@ -844,7 +844,7 @@
         "bars": false,
         "dashLength": 10,
         "dashes": false,
-        "datasource": null,
+        "datasource": "MySQL",
         "fill": 3,
         "fillGradient": 0,
         "gridPos": {
@@ -885,22 +885,22 @@
             "format": "time_series",
             "group": [],
             "metricColumn": "none",
-            "rawQuery": false,
-            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Co2\nFROM DL303_CO2\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "rawQuery": true,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  CO2\nFROM DL303_CO2\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
             "refId": "A",
             "select": [
               [
                 {
                   "params": [
-                    "Co2"
+                    "Count_Log"
                   ],
                   "type": "column"
                 }
               ]
             ],
-            "table": "DL303_CO2",
+            "table": "Air_Condiction",
             "timeColumn": "Time_Stamp",
-            "timeColumnType": "datetime",
+            "timeColumnType": "timestamp",
             "where": [
               {
                 "name": "$__timeFilter",
@@ -953,7 +953,7 @@
       },
       {
         "columns": [],
-        "datasource": null,
+        "datasource": "MySQL",
         "fontSize": "90%",
         "gridPos": {
           "h": 7,
@@ -962,6 +962,7 @@
           "y": 18
         },
         "id": 22,
+        "interval": "",
         "links": [],
         "options": {},
         "pageSize": 15,
@@ -1001,7 +1002,7 @@
             "group": [],
             "metricColumn": "none",
             "rawQuery": true,
-            "rawSql": "SELECT Co2 AS 二氧化碳濃度, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM DL303_CO2\nORDER BY Time_Stamp DESC\nLIMIT 15;",
+            "rawSql": "SELECT CO2 AS CO2濃度, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM DL303_CO2\nORDER BY Time_Stamp DESC\nLIMIT 15;",
             "refId": "A",
             "select": [
               [
@@ -1013,9 +1014,7 @@
                 }
               ]
             ],
-            "target": "db.DL303_CO2.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"CO2\", \"value\" : \"$data\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
             "timeColumn": "time",
-            "type": "timeserie",
             "where": [
               {
                 "name": "$__timeFilter",
@@ -1031,12 +1030,13 @@
       },
       {
         "aliasColors": {
-          "DC": "#eab839"
+          "DC": "#eab839",
+          "Dew_Point": "purple"
         },
         "bars": false,
         "dashLength": 10,
         "dashes": false,
-        "datasource": null,
+        "datasource": "MySQL",
         "fill": 3,
         "fillGradient": 0,
         "gridPos": {
@@ -1078,7 +1078,7 @@
             "format": "time_series",
             "group": [],
             "metricColumn": "none",
-            "rawQuery": false,
+            "rawQuery": true,
             "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Dew_Point\nFROM DL303_DC\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
             "refId": "A",
             "select": [
@@ -1146,7 +1146,7 @@
       },
       {
         "columns": [],
-        "datasource": null,
+        "datasource": "MySQL",
         "fontSize": "90%",
         "gridPos": {
           "h": 7,
@@ -1194,7 +1194,7 @@
             "group": [],
             "metricColumn": "none",
             "rawQuery": true,
-            "rawSql": "SELECT Dew_Point AS 結露溫度, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM DL303_DC\nORDER BY Time_Stamp DESC\nLIMIT 15;",
+            "rawSql": "SELECT Dew_Point AS 露點溫度, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM DL303_DC\nORDER BY Time_Stamp DESC\nLIMIT 15;",
             "refId": "A",
             "select": [
               [
@@ -1206,9 +1206,7 @@
                 }
               ]
             ],
-            "target": "db.DL303_DC.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"DC\", \"value\" : \"$data\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
             "timeColumn": "time",
-            "type": "timeserie",
             "where": [
               {
                 "name": "$__timeFilter",
