@@ -1,4 +1,5 @@
 import os, sys
+import requests
 
 os.system("apt-get update -y")
 os.system('echo "deb https://packages.grafana.com/oss/deb stable main" > /etc/apt/sources.list.d/grafana.list')
@@ -90,4 +91,3 @@ try:
             print("grafana_service error")
 except:
     print("grafana_service error")
-    time.sleep(10)
