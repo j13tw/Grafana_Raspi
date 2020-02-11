@@ -24,13 +24,12 @@
         "colorBackground": false,
         "colorValue": true,
         "colors": [
-          "#aea2e0",
-          "#0a437c",
+          "#299c46",
+          "#1f78c1",
           "#d44a3a"
         ],
         "datasource": "MySQL",
-        "decimals": null,
-        "format": "none",
+        "format": "celsius",
         "gauge": {
           "maxValue": 100,
           "minValue": 0,
@@ -40,12 +39,12 @@
         },
         "gridPos": {
           "h": 4,
-          "w": 6,
+          "w": 8,
           "x": 0,
           "y": 0
         },
-        "id": 14,
-        "interval": "",
+        "id": 6,
+        "interval": null,
         "links": [],
         "mappingType": 1,
         "mappingTypes": [
@@ -61,9 +60,9 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
-        "postfix": " °C",
+        "postfix": "",
         "postfixFontSize": "100%",
-        "prefix": "環境溫度:",
+        "prefix": "出風口溫度 : ",
         "prefixFontSize": "100%",
         "rangeMaps": [
           {
@@ -76,17 +75,16 @@
           "fillColor": "rgba(31, 118, 189, 0.18)",
           "full": false,
           "lineColor": "rgb(31, 120, 193)",
-          "show": false
+          "show": true
         },
         "tableColumn": "",
         "targets": [
           {
             "format": "time_series",
             "group": [],
-            "hide": false,
             "metricColumn": "none",
             "rawQuery": false,
-            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Temp AS \"Count_Log\"\nFROM DL303_TC\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Temp\nFROM Air_Condiction\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
             "refId": "A",
             "select": [
               [
@@ -95,20 +93,12 @@
                     "Temp"
                   ],
                   "type": "column"
-                },
-                {
-                  "params": [
-                    "Count_Log"
-                  ],
-                  "type": "alias"
                 }
               ]
             ],
-            "table": "DL303_TC",
-            "target": "db.DL303_TC.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 1},\n{\"$project\" : {\"name\" : \"Temp\", \"value\" : \"$data\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "table": "Air_Condiction",
             "timeColumn": "Time_Stamp",
-            "timeColumnType": "datetime",
-            "type": "timeserie",
+            "timeColumnType": "timestamp",
             "where": [
               {
                 "name": "$__timeFilter",
@@ -119,8 +109,7 @@
           }
         ],
         "thresholds": "",
-        "timeFrom": "5s",
-        "title": "DL-303_Temperature(即時環境溫度)",
+        "title": "air_condiction-Temperature",
         "type": "singlestat",
         "valueFontSize": "150%",
         "valueMaps": [
@@ -130,15 +119,15 @@
             "value": "null"
           }
         ],
-        "valueName": "current"
+        "valueName": "avg"
       },
       {
         "cacheTimeout": null,
         "colorBackground": false,
         "colorValue": true,
         "colors": [
-          "#6ed0e0",
-          "#70dbed",
+          "#299c46",
+          "#e5a8e2",
           "#d44a3a"
         ],
         "datasource": "MySQL",
@@ -152,11 +141,11 @@
         },
         "gridPos": {
           "h": 4,
-          "w": 6,
-          "x": 6,
+          "w": 8,
+          "x": 8,
           "y": 0
         },
-        "id": 12,
+        "id": 7,
         "interval": null,
         "links": [],
         "mappingType": 1,
@@ -174,8 +163,8 @@
         "nullPointMode": "connected",
         "nullText": null,
         "postfix": " %RH",
-        "postfixFontSize": "100%",
-        "prefix": "環境濕度:",
+        "postfixFontSize": "150%",
+        "prefix": "出風口濕度 : ",
         "prefixFontSize": "100%",
         "rangeMaps": [
           {
@@ -197,7 +186,7 @@
             "group": [],
             "metricColumn": "none",
             "rawQuery": false,
-            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Humi\nFROM DL303_RH\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Humi\nFROM Air_Condiction\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
             "refId": "A",
             "select": [
               [
@@ -209,9 +198,9 @@
                 }
               ]
             ],
-            "table": "DL303_RH",
+            "table": "Air_Condiction",
             "timeColumn": "Time_Stamp",
-            "timeColumnType": "datetime",
+            "timeColumnType": "timestamp",
             "where": [
               {
                 "name": "$__timeFilter",
@@ -222,8 +211,7 @@
           }
         ],
         "thresholds": "",
-        "timeFrom": "5s",
-        "title": "DL303_Humidity(即時環境濕度)",
+        "title": "air_condiction-Humidity",
         "type": "singlestat",
         "valueFontSize": "150%",
         "valueMaps": [
@@ -233,7 +221,7 @@
             "value": "null"
           }
         ],
-        "valueName": "current"
+        "valueName": "avg"
       },
       {
         "cacheTimeout": null,
@@ -241,11 +229,10 @@
         "colorValue": true,
         "colors": [
           "#299c46",
-          "#7eb26d",
+          "rgba(237, 129, 40, 0.89)",
           "#d44a3a"
         ],
-        "datasource": "MySQL",
-        "format": "none",
+        "format": "amp",
         "gauge": {
           "maxValue": 100,
           "minValue": 0,
@@ -255,11 +242,11 @@
         },
         "gridPos": {
           "h": 4,
-          "w": 6,
-          "x": 12,
+          "w": 8,
+          "x": 16,
           "y": 0
         },
-        "id": 16,
+        "id": 4,
         "interval": null,
         "links": [],
         "mappingType": 1,
@@ -276,9 +263,9 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
-        "postfix": " ppm",
+        "postfix": "",
         "postfixFontSize": "100%",
-        "prefix": "CO2 濃度:",
+        "prefix": "冷氣消耗電流 : ",
         "prefixFontSize": "100%",
         "rangeMaps": [
           {
@@ -300,19 +287,19 @@
             "group": [],
             "metricColumn": "none",
             "rawQuery": false,
-            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Co2\nFROM DL303_CO2\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Current\nFROM Power_Meter\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
             "refId": "A",
             "select": [
               [
                 {
                   "params": [
-                    "Co2"
+                    "Current"
                   ],
                   "type": "column"
                 }
               ]
             ],
-            "table": "DL303_CO2",
+            "table": "Power_Meter",
             "timeColumn": "Time_Stamp",
             "timeColumnType": "datetime",
             "where": [
@@ -325,8 +312,7 @@
           }
         ],
         "thresholds": "",
-        "timeFrom": "5s",
-        "title": "DL303-CO2(即時二氧化碳濃度)",
+        "title": "Ait_condition-Currents",
         "type": "singlestat",
         "valueFontSize": "150%",
         "valueMaps": [
@@ -341,14 +327,13 @@
       {
         "cacheTimeout": null,
         "colorBackground": false,
-        "colorValue": true,
+        "colorValue": false,
         "colors": [
           "#299c46",
-          "#e5ac0e",
+          "rgba(237, 129, 40, 0.89)",
           "#d44a3a"
         ],
-        "datasource": "MySQL",
-        "format": "none",
+        "format": "celsius",
         "gauge": {
           "maxValue": 100,
           "minValue": 0,
@@ -358,141 +343,52 @@
         },
         "gridPos": {
           "h": 4,
-          "w": 6,
-          "x": 18,
-          "y": 0
-        },
-        "id": 10,
-        "interval": null,
-        "links": [],
-        "mappingType": 1,
-        "mappingTypes": [
-          {
-            "name": "value to text",
-            "value": 1
-          },
-          {
-            "name": "range to text",
-            "value": 2
-          }
-        ],
-        "maxDataPoints": 100,
-        "nullPointMode": "connected",
-        "nullText": null,
-        "postfix": " °C",
-        "postfixFontSize": "100%",
-        "prefix": "露點溫度:",
-        "prefixFontSize": "100%",
-        "rangeMaps": [
-          {
-            "from": "null",
-            "text": "N/A",
-            "to": "null"
-          }
-        ],
-        "sparkline": {
-          "fillColor": "rgba(31, 118, 189, 0.18)",
-          "full": false,
-          "lineColor": "rgb(31, 120, 193)",
-          "show": false
-        },
-        "tableColumn": "",
-        "targets": [
-          {
-            "format": "time_series",
-            "group": [],
-            "metricColumn": "none",
-            "rawQuery": false,
-            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Dew_Point\nFROM DL303_DC\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
-            "refId": "A",
-            "select": [
-              [
-                {
-                  "params": [
-                    "Dew_Point"
-                  ],
-                  "type": "column"
-                }
-              ]
-            ],
-            "table": "DL303_DC",
-            "timeColumn": "Time_Stamp",
-            "timeColumnType": "datetime",
-            "where": [
-              {
-                "name": "$__timeFilter",
-                "params": [],
-                "type": "macro"
-              }
-            ]
-          }
-        ],
-        "thresholds": "",
-        "timeFrom": "5s",
-        "title": "DL303-Dew_Point(即時露點溫度)",
-        "type": "singlestat",
-        "valueFontSize": "150%",
-        "valueMaps": [
-          {
-            "op": "=",
-            "text": "N/A",
-            "value": "null"
-          }
-        ],
-        "valueName": "current"
-      },
-      {
-        "aliasColors": {
-          "Temp": "#705da0"
-        },
-        "bars": false,
-        "dashLength": 10,
-        "dashes": false,
-        "datasource": "MySQL",
-        "fill": 3,
-        "gridPos": {
-          "h": 7,
-          "w": 19,
+          "w": 12,
           "x": 0,
           "y": 4
         },
-        "hideTimeOverride": false,
-        "id": 6,
-        "legend": {
-          "alignAsTable": false,
-          "avg": false,
-          "current": false,
-          "max": false,
-          "min": false,
-          "show": true,
-          "total": false,
-          "values": false
-        },
-        "lines": true,
-        "linewidth": 1,
+        "id": 17,
+        "interval": null,
         "links": [],
-        "nullPointMode": "null",
-        "paceLength": 10,
-        "percentage": false,
-        "pointradius": 0.5,
-        "points": false,
-        "renderer": "flot",
-        "seriesOverrides": [
+        "mappingType": 1,
+        "mappingTypes": [
           {
-            "alias": "Temp",
-            "yaxis": 1
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
           }
         ],
-        "spaceLength": 10,
-        "stack": false,
-        "steppedLine": true,
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "100%",
+        "prefix": "偵測節點溫度 : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
         "targets": [
           {
             "format": "time_series",
             "group": [],
             "metricColumn": "none",
             "rawQuery": false,
-            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Temp\nFROM DL303_TC\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Temp\nFROM Power_Meter\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
             "refId": "A",
             "select": [
               [
@@ -504,7 +400,7 @@
                 }
               ]
             ],
-            "table": "DL303_TC",
+            "table": "Power_Meter",
             "timeColumn": "Time_Stamp",
             "timeColumnType": "datetime",
             "where": [
@@ -516,170 +412,84 @@
             ]
           }
         ],
-        "thresholds": [],
-        "timeFrom": "5m",
-        "timeRegions": [],
-        "timeShift": null,
-        "title": "DL-303_Temperature(溫度歷史圖表)",
-        "tooltip": {
-          "shared": true,
-          "sort": 0,
-          "value_type": "individual"
-        },
-        "type": "graph",
-        "xaxis": {
-          "buckets": null,
-          "mode": "time",
-          "name": null,
-          "show": true,
-          "values": []
-        },
-        "yaxes": [
+        "thresholds": "",
+        "title": "偵測節點溫度",
+        "type": "singlestat",
+        "valueFontSize": "150%",
+        "valueMaps": [
           {
-            "format": "celsius",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true
-          },
-          {
-            "format": "celsius",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": false
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
           }
         ],
-        "yaxis": {
-          "align": false,
-          "alignLevel": null
-        }
+        "valueName": "current"
       },
       {
-        "columns": [],
-        "datasource": "MySQL",
-        "fontSize": "90%",
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#806eb7",
+          "#d44a3a"
+        ],
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
         "gridPos": {
-          "h": 7,
-          "w": 5,
-          "x": 19,
+          "h": 4,
+          "w": 12,
+          "x": 12,
           "y": 4
         },
-        "id": 20,
+        "id": 18,
+        "interval": null,
         "links": [],
-        "pageSize": 15,
-        "scroll": true,
-        "showHeader": true,
-        "sort": {
-          "col": null,
-          "desc": false
-        },
-        "styles": [
+        "mappingType": 1,
+        "mappingTypes": [
           {
-            "alias": "Time",
-            "dateFormat": "YYYY-MM-DD HH:mm:ss",
-            "pattern": "Time",
-            "type": "date"
+            "name": "value to text",
+            "value": 1
           },
           {
-            "alias": "",
-            "colorMode": null,
-            "colors": [
-              "rgba(245, 54, 54, 0.9)",
-              "rgba(237, 129, 40, 0.89)",
-              "rgba(50, 172, 45, 0.97)"
-            ],
-            "decimals": 2,
-            "pattern": "/.*/",
-            "thresholds": [],
-            "type": "number",
-            "unit": "short"
+            "name": "range to text",
+            "value": 2
           }
         ],
-        "targets": [
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " %RH",
+        "postfixFontSize": "150%",
+        "prefix": "偵測節點濕度 : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
           {
-            "format": "table",
-            "group": [],
-            "metricColumn": "none",
-            "rawQuery": true,
-            "rawSql": "SELECT Temp AS 溫度, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM DL303_TC \nORDER BY Time_Stamp DESC\nLIMIT 15;",
-            "refId": "A",
-            "select": [
-              [
-                {
-                  "params": [
-                    "value"
-                  ],
-                  "type": "column"
-                }
-              ]
-            ],
-            "timeColumn": "time",
-            "where": [
-              {
-                "name": "$__timeFilter",
-                "params": [],
-                "type": "macro"
-              }
-            ]
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
           }
         ],
-        "title": "DL-303_Temperature(最新15筆溫度資料)",
-        "transform": "table",
-        "type": "table"
-      },
-      {
-        "aliasColors": {
-          "Humi": "#82b5d8"
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
         },
-        "bars": false,
-        "dashLength": 10,
-        "dashes": false,
-        "datasource": "MySQL",
-        "fill": 1,
-        "gridPos": {
-          "h": 7,
-          "w": 19,
-          "x": 0,
-          "y": 11
-        },
-        "id": 8,
-        "legend": {
-          "avg": false,
-          "current": false,
-          "max": false,
-          "min": false,
-          "show": true,
-          "total": false,
-          "values": false
-        },
-        "lines": true,
-        "linewidth": 2,
-        "links": [],
-        "nullPointMode": "null",
-        "paceLength": 10,
-        "percentage": false,
-        "pointradius": 5,
-        "points": false,
-        "renderer": "flot",
-        "seriesOverrides": [
-          {
-            "alias": "Humi",
-            "yaxis": 1
-          }
-        ],
-        "spaceLength": 10,
-        "stack": false,
-        "steppedLine": false,
+        "tableColumn": "",
         "targets": [
           {
             "format": "time_series",
             "group": [],
             "metricColumn": "none",
             "rawQuery": false,
-            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Humi\nFROM DL303_RH\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Humi\nFROM Power_Meter\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
             "refId": "A",
             "select": [
               [
@@ -691,7 +501,7 @@
                 }
               ]
             ],
-            "table": "DL303_RH",
+            "table": "Power_Meter",
             "timeColumn": "Time_Stamp",
             "timeColumnType": "datetime",
             "where": [
@@ -703,150 +513,54 @@
             ]
           }
         ],
-        "thresholds": [],
-        "timeFrom": "5m",
-        "timeRegions": [],
-        "timeShift": null,
-        "title": "DL303_Humidity(濕度歷史列表)",
-        "tooltip": {
-          "shared": true,
-          "sort": 0,
-          "value_type": "individual"
-        },
-        "type": "graph",
-        "xaxis": {
-          "buckets": null,
-          "mode": "time",
-          "name": null,
-          "show": true,
-          "values": []
-        },
-        "yaxes": [
+        "thresholds": "",
+        "title": "偵測節點濕度",
+        "type": "singlestat",
+        "valueFontSize": "150%",
+        "valueMaps": [
           {
-            "format": "humidity",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true
-          },
-          {
-            "format": "humidity",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
           }
         ],
-        "yaxis": {
-          "align": false,
-          "alignLevel": null
-        }
+        "valueName": "current"
       },
       {
-        "columns": [],
-        "fontSize": "90%",
-        "gridPos": {
-          "h": 7,
-          "w": 5,
-          "x": 19,
-          "y": 11
+        "aliasColors": {
+          "Current": "semi-dark-yellow",
+          "currents": "#e5ac0e"
         },
-        "id": 21,
-        "links": [],
-        "pageSize": 15,
-        "scroll": true,
-        "showHeader": true,
-        "sort": {
-          "col": null,
-          "desc": false
-        },
-        "styles": [
-          {
-            "alias": "Time",
-            "dateFormat": "YYYY-MM-DD HH:mm:ss",
-            "pattern": "Time",
-            "type": "date"
-          },
-          {
-            "alias": "",
-            "colorMode": null,
-            "colors": [
-              "rgba(245, 54, 54, 0.9)",
-              "rgba(237, 129, 40, 0.89)",
-              "rgba(50, 172, 45, 0.97)"
-            ],
-            "decimals": 2,
-            "pattern": "/.*/",
-            "thresholds": [],
-            "type": "number",
-            "unit": "short"
-          }
-        ],
-        "targets": [
-          {
-            "format": "table",
-            "group": [],
-            "metricColumn": "none",
-            "rawQuery": true,
-            "rawSql": "SELECT Humi AS 濕度, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM DL303_RH\nORDER BY Time_Stamp DESC\nLIMIT 15;",
-            "refId": "A",
-            "select": [
-              [
-                {
-                  "params": [
-                    "value"
-                  ],
-                  "type": "column"
-                }
-              ]
-            ],
-            "target": "db.DL303_RH.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"Humi\", \"value\" : \"$data\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
-            "timeColumn": "time",
-            "type": "timeserie",
-            "where": [
-              {
-                "name": "$__timeFilter",
-                "params": [],
-                "type": "macro"
-              }
-            ]
-          }
-        ],
-        "title": "DL-303_Humidity(最新15筆濕度資料)",
-        "transform": "table",
-        "type": "table"
-      },
-      {
-        "aliasColors": {},
         "bars": false,
         "dashLength": 10,
         "dashes": false,
+        "datasource": "MySQL",
         "fill": 3,
         "gridPos": {
-          "h": 7,
-          "w": 19,
+          "h": 8,
+          "w": 20,
           "x": 0,
-          "y": 18
+          "y": 8
         },
-        "id": 4,
+        "id": 2,
         "legend": {
+          "alignAsTable": false,
           "avg": false,
           "current": false,
           "max": false,
           "min": false,
+          "rightSide": false,
           "show": true,
           "total": false,
           "values": false
         },
         "lines": true,
-        "linewidth": 3,
+        "linewidth": 1,
         "links": [],
         "nullPointMode": "null",
         "paceLength": 10,
         "percentage": false,
-        "pointradius": 5,
+        "pointradius": 2,
         "points": false,
         "renderer": "flot",
         "seriesOverrides": [],
@@ -859,19 +573,19 @@
             "group": [],
             "metricColumn": "none",
             "rawQuery": false,
-            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Co2\nFROM DL303_CO2\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Current\nFROM Power_Meter\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
             "refId": "A",
             "select": [
               [
                 {
                   "params": [
-                    "Co2"
+                    "Current"
                   ],
                   "type": "column"
                 }
               ]
             ],
-            "table": "DL303_CO2",
+            "table": "Power_Meter",
             "timeColumn": "Time_Stamp",
             "timeColumnType": "datetime",
             "where": [
@@ -884,10 +598,10 @@
           }
         ],
         "thresholds": [],
-        "timeFrom": "5m",
+        "timeFrom": "10m",
         "timeRegions": [],
         "timeShift": null,
-        "title": "DL303-CO2(二氧化碳濃度歷史列表)",
+        "title": "Air-condiction_Current(歷史電流表單)",
         "tooltip": {
           "shared": true,
           "sort": 0,
@@ -903,7 +617,7 @@
         },
         "yaxes": [
           {
-            "format": "ppm",
+            "format": "amp",
             "label": null,
             "logBase": 1,
             "max": null,
@@ -926,21 +640,22 @@
       },
       {
         "columns": [],
+        "datasource": "MySQL",
         "fontSize": "90%",
         "gridPos": {
-          "h": 7,
-          "w": 5,
-          "x": 19,
-          "y": 18
+          "h": 8,
+          "w": 4,
+          "x": 20,
+          "y": 8
         },
-        "id": 22,
+        "id": 9,
         "links": [],
-        "pageSize": 15,
+        "pageSize": null,
         "scroll": true,
         "showHeader": true,
         "sort": {
-          "col": null,
-          "desc": false
+          "col": 0,
+          "desc": true
         },
         "styles": [
           {
@@ -970,7 +685,7 @@
             "group": [],
             "metricColumn": "none",
             "rawQuery": true,
-            "rawSql": "SELECT Co2 AS 二氧化碳濃度, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM DL303_CO2\nORDER BY Time_Stamp DESC\nLIMIT 15;",
+            "rawSql": "SELECT Current AS 電流, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM Power_Meter\nORDER BY Time_Stamp DESC\nLIMIT 15;",
             "refId": "A",
             "select": [
               [
@@ -982,7 +697,7 @@
                 }
               ]
             ],
-            "target": "db.DL303_CO2.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"CO2\", \"value\" : \"$data\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "target": "db.current.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :15},\n{\"$project\" : {\"name\" : \"currents\", \"value\" : \"$currents\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
             "timeColumn": "time",
             "type": "timeserie",
             "where": [
@@ -994,43 +709,46 @@
             ]
           }
         ],
-        "title": "DL-303_CO2(最新15筆二氧化碳濃度資料)",
+        "title": "最新10筆電流資料",
         "transform": "table",
         "type": "table"
       },
       {
         "aliasColors": {
-          "DC": "#eab839"
+          "Temp": "light-blue",
+          "currents": "#f4d598"
         },
         "bars": false,
         "dashLength": 10,
         "dashes": false,
-        "fill": 3,
+        "datasource": "MySQL",
+        "fill": 2,
         "gridPos": {
-          "h": 7,
-          "w": 19,
+          "h": 8,
+          "w": 20,
           "x": 0,
-          "y": 25
+          "y": 16
         },
-        "hideTimeOverride": false,
-        "id": 2,
+        "id": 20,
         "legend": {
+          "alignAsTable": false,
           "avg": false,
           "current": false,
           "max": false,
           "min": false,
+          "rightSide": false,
           "show": true,
           "total": false,
           "values": false
         },
         "lines": true,
-        "linewidth": 2,
+        "linewidth": 1,
         "links": [],
         "nullPointMode": "null",
         "paceLength": 10,
         "percentage": false,
-        "pointradius": 5,
-        "points": false,
+        "pointradius": 1,
+        "points": true,
         "renderer": "flot",
         "seriesOverrides": [],
         "spaceLength": 10,
@@ -1042,19 +760,19 @@
             "group": [],
             "metricColumn": "none",
             "rawQuery": false,
-            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Dew_Point\nFROM DL303_DC\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Temp\nFROM Power_Meter\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
             "refId": "A",
             "select": [
               [
                 {
                   "params": [
-                    "Dew_Point"
+                    "Temp"
                   ],
                   "type": "column"
                 }
               ]
             ],
-            "table": "DL303_DC",
+            "table": "Power_Meter",
             "timeColumn": "Time_Stamp",
             "timeColumnType": "datetime",
             "where": [
@@ -1067,10 +785,10 @@
           }
         ],
         "thresholds": [],
-        "timeFrom": "5m",
+        "timeFrom": "10m",
         "timeRegions": [],
         "timeShift": null,
-        "title": "DL303_DC(即時露點溫度)",
+        "title": "Air-condiction_Temperature(歷史溫度表單)",
         "tooltip": {
           "shared": true,
           "sort": 0,
@@ -1109,21 +827,22 @@
       },
       {
         "columns": [],
+        "datasource": "MySQL",
         "fontSize": "90%",
         "gridPos": {
-          "h": 7,
-          "w": 5,
-          "x": 19,
-          "y": 25
+          "h": 8,
+          "w": 4,
+          "x": 20,
+          "y": 16
         },
-        "id": 23,
+        "id": 13,
         "links": [],
-        "pageSize": 15,
+        "pageSize": null,
         "scroll": true,
         "showHeader": true,
         "sort": {
-          "col": null,
-          "desc": false
+          "col": 0,
+          "desc": true
         },
         "styles": [
           {
@@ -1153,7 +872,7 @@
             "group": [],
             "metricColumn": "none",
             "rawQuery": true,
-            "rawSql": "SELECT Dew_Point AS 結露溫度, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM DL303_DC\nORDER BY Time_Stamp DESC\nLIMIT 15;",
+            "rawSql": "SELECT Temp AS 溫度, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM Power_Meter\nORDER BY Time_Stamp DESC\nLIMIT 15;",
             "refId": "A",
             "select": [
               [
@@ -1165,7 +884,7 @@
                 }
               ]
             ],
-            "target": "db.DL303_DC.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"DC\", \"value\" : \"$data\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "target": "db.current.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :15},\n{\"$project\" : {\"name\" : \"Temperature\", \"value\" : \"$Temperature\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
             "timeColumn": "time",
             "type": "timeserie",
             "where": [
@@ -1177,7 +896,195 @@
             ]
           }
         ],
-        "title": "DL-303_DC(最新15筆露點溫度資料)",
+        "title": "最新15筆溫度資料",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "aliasColors": {
+          "Humi": "semi-dark-purple",
+          "Humidity": "#ba43a9",
+          "currents": "#f4d598"
+        },
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "MySQL",
+        "fill": 3,
+        "gridPos": {
+          "h": 8,
+          "w": 20,
+          "x": 0,
+          "y": 24
+        },
+        "id": 19,
+        "legend": {
+          "alignAsTable": false,
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "rightSide": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "paceLength": 10,
+        "percentage": false,
+        "pointradius": 2,
+        "points": true,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Humi\nFROM Power_Meter\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Humi"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Meter",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": "10m",
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Air-condiction_Current(歷史濕度表單)",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "humidity",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "columns": [],
+        "datasource": "MySQL",
+        "fontSize": "90%",
+        "gridPos": {
+          "h": 8,
+          "w": 4,
+          "x": 20,
+          "y": 24
+        },
+        "id": 15,
+        "links": [],
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "date"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT Humi AS 濕度, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM Power_Meter\nORDER BY Time_Stamp DESC\nLIMIT 15;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "target": "db.current.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :15},\n{\"$project\" : {\"name\" : \"Humidity\", \"value\" : \"$Humidity\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "timeColumn": "time",
+            "type": "timeserie",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "最新15筆濕度資料",
         "transform": "table",
         "type": "table"
       }
@@ -1219,7 +1126,7 @@
       ]
     },
     "timezone": "",
-    "title": "DL303-DashBoard",
+    "title": "冷氣出風口",
     "uid": null,
     "version": 0
   },

@@ -1,0 +1,3017 @@
+{
+  "dashboard": {
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": null,
+    "links": [],
+    "panels": [
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#eab839",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 9,
+          "x": 0,
+          "y": 0
+        },
+        "id": 8,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "100%",
+        "prefix": "擺放位置 : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": true,
+          "lineColor": "#1f78c1",
+          "show": false
+        },
+        "tableColumn": "Device_Locate",
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT Device_Locate FROM UPS_A ORDER BY Time_Stamp DESC LIMIT 1;",
+            "refId": "C",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Device_Locate"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "UPS_A - Connect_locate",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#82b5d8",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 8,
+          "x": 9,
+          "y": 0
+        },
+        "id": 9,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "100%",
+        "prefix": "UPS 狀態 : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": true,
+          "lineColor": "#1f78c1",
+          "show": false
+        },
+        "tableColumn": "Device_Life",
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT Device_Life FROM UPS_A ORDER BY Time_Stamp DESC LIMIT 1;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Count_Log"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Air_Condiction",
+            "target": "db.UPS_Monitor.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :1},\n{\"$project\" : {\"name\" : \"input_Line\", \"value\" : \"$ups_Life_A\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "timestamp",
+            "type": "timeserie",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "UPS_A - Life",
+        "type": "singlestat",
+        "valueFontSize": "120%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#e0f9d7",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 7,
+          "x": 17,
+          "y": 0
+        },
+        "id": 10,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " °C",
+        "postfixFontSize": "100%",
+        "prefix": "UPS 機箱溫度 : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": true,
+          "lineColor": "#1f78c1",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Battery_Temp\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Battery_Temp"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "UPS_A - Temperature",
+        "type": "singlestat",
+        "valueFontSize": "120%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#ea6460",
+          "#6ed0e0",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 11,
+          "x": 0,
+          "y": 4
+        },
+        "id": 19,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "100%",
+        "prefix": "充電模式 :",
+        "prefixFontSize": "80%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#eab839",
+          "full": false,
+          "lineColor": "#82b5d8",
+          "show": true
+        },
+        "tableColumn": "Battery_Charge_Mode",
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "hide": false,
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT Battery_Charge_Mode FROM UPS_A ORDER BY Time_Stamp DESC LIMIT 1;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Count_Log"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Air_Condiction",
+            "target": "db.UPS_Monitor.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :1},\n{\"$project\" : {\"name\" : \"inputVolt_A\", \"value\" : \"$battery_A.status.batteryCharge_Mode_A\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "timestamp",
+            "type": "timeserie",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "UPS_A -Batter_Charge_Mode",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#1f78c1",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "volt",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 11,
+          "y": 4
+        },
+        "id": 18,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "100%",
+        "prefix": "電池狀態 :",
+        "prefixFontSize": "80%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#eab839",
+          "full": false,
+          "lineColor": "#82b5d8",
+          "show": true
+        },
+        "tableColumn": "Battery_Status",
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "hide": false,
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT Battery_Status FROM UPS_A ORDER BY Time_Stamp DESC LIMIT 1;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Count_Log"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Air_Condiction",
+            "target": "db.UPS_Monitor.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :1},\n{\"$project\" : {\"name\" : \"inputVolt_A\", \"value\" : \"$battery_A.status.batteryStatus_A\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "timestamp",
+            "type": "timeserie",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "UPS_A -Battery_Status",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#ba43a9",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "volt",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 7,
+          "x": 17,
+          "y": 4
+        },
+        "id": 17,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "100%",
+        "prefix": "電池健康度 :",
+        "prefixFontSize": "80%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#eab839",
+          "full": false,
+          "lineColor": "#82b5d8",
+          "show": true
+        },
+        "tableColumn": "Battery_Health",
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT Battery_Health FROM UPS_A ORDER BY Time_Stamp DESC LIMIT 1;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Count_Log"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Air_Condiction",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "UPS_A -Battery_Health",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#f2c96d",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 0,
+          "y": 8
+        },
+        "id": 6,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " 號線路",
+        "postfixFontSize": "100%",
+        "prefix": "輸入線路 : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": true,
+          "lineColor": "#1f78c1",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Input_Line\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Input_Line"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "UPS_A - Input_Line",
+        "type": "singlestat",
+        "valueFontSize": "120%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#e5ac0e",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 6,
+          "y": 8
+        },
+        "id": 11,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "100%",
+        "prefix": "轉換模式 : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#eab839",
+          "full": false,
+          "lineColor": "#82b5d8",
+          "show": true
+        },
+        "tableColumn": "System_Mode",
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "hide": false,
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT System_Mode FROM UPS_A ORDER BY Time_Stamp DESC LIMIT 1;\n",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Count_Log"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Air_Condiction",
+            "target": "db.UPS_Monitor.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" :100},\n{\"$project\" : {\"name\" : \"inputVolt_A\", \"value\" : \"$output_A.systemMode_A\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "timestamp",
+            "type": "timeserie",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "UPS_A - output_status",
+        "type": "singlestat",
+        "valueFontSize": "120%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#dedaf7",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 12,
+          "y": 8
+        },
+        "id": 2,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " V",
+        "postfixFontSize": "100%",
+        "prefix": "Voltage (AC) : ",
+        "prefixFontSize": "80%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": true,
+          "lineColor": "#1f78c1",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Input_Volt\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Input_Volt"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "UPS_A - Input_Voltage",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#967302",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 18,
+          "y": 8
+        },
+        "id": 3,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " Hz",
+        "postfixFontSize": "100%",
+        "prefix": "Frequency : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#eab839",
+          "full": false,
+          "lineColor": "#82b5d8",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Input_Freq\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Input_Freq"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "UPS_A - Input_Frequency",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#d683ce",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 0,
+          "y": 12
+        },
+        "id": 7,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " 號線路",
+        "postfixFontSize": "100%",
+        "prefix": "輸出線路 : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": true,
+          "lineColor": "#1f78c1",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Output_Line\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Output_Line"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "UPS_A - output_Line",
+        "type": "singlestat",
+        "valueFontSize": "120%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#962d82",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 6,
+          "y": 12
+        },
+        "id": 12,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " A",
+        "postfixFontSize": "100%",
+        "prefix": "Current : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#eab839",
+          "full": false,
+          "lineColor": "#82b5d8",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Output_Amp\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Output_Amp"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "UPS_A - output_Amp",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 12,
+          "y": 12
+        },
+        "id": 4,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " V",
+        "postfixFontSize": "100%",
+        "prefix": "Voltage (AC) : ",
+        "prefixFontSize": "80%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#9ac48a",
+          "full": true,
+          "lineColor": "#1f78c1",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Output_Volt\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Output_Volt"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "UPS_A - output_Voltage",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#0a50a1",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 18,
+          "y": 12
+        },
+        "id": 5,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " Hz",
+        "postfixFontSize": "100%",
+        "prefix": "Frequency : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#eab839",
+          "full": false,
+          "lineColor": "#82b5d8",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Output_Freq\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Output_Freq"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "UPS_A - output_Frequency",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "#1f78c1",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 7,
+          "x": 0,
+          "y": 16
+        },
+        "id": 14,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " kW",
+        "postfixFontSize": "120%",
+        "prefix": "Watt : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#eab839",
+          "full": false,
+          "lineColor": "#82b5d8",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Output_Watt\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Output_Watt"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "50, 80",
+        "title": "UPS_A -Load_Percent",
+        "type": "singlestat",
+        "valueFontSize": "120%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#fceaca",
+          "#1f78c1",
+          "#890f02"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 5,
+          "x": 7,
+          "y": 16
+        },
+        "id": 13,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "100%",
+        "prefix": "",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#eab839",
+          "full": false,
+          "lineColor": "#82b5d8",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Output_Percent\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Output_Percent"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "50, 80",
+        "title": "UPS_A -Load_Percent",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "#1f78c1",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 7,
+          "x": 12,
+          "y": 16
+        },
+        "id": 16,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " V",
+        "postfixFontSize": "120%",
+        "prefix": "Voltage (DC) : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#eab839",
+          "full": false,
+          "lineColor": "#82b5d8",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Battery_Volt\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Battery_Volt"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "50, 80",
+        "title": "UPS_A -Battery_Volt",
+        "type": "singlestat",
+        "valueFontSize": "120%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#1f78c1",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 5,
+          "x": 19,
+          "y": 16
+        },
+        "id": 15,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "100%",
+        "prefix": "",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#eab839",
+          "full": false,
+          "lineColor": "#82b5d8",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Battery_Remain_Percent\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Battery_Remain_Percent"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "50, 80",
+        "title": "UPS_A -Battery_Remain",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "content": "<font color=gray size=7> 上次更換電池日期 : </font>",
+        "gridPos": {
+          "h": 3,
+          "w": 6,
+          "x": 0,
+          "y": 21
+        },
+        "id": 32,
+        "links": [],
+        "mode": "html",
+        "title": "UPS_A-Battery-LastChange_Date",
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 2,
+          "x": 6,
+          "y": 21
+        },
+        "id": 25,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Battery_Last_Change_Year\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Battery_Last_Change_Year"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "Last_Aattery_Year",
+        "type": "singlestat",
+        "valueFontSize": "120%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "avg"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 2,
+          "x": 8,
+          "y": 21
+        },
+        "id": 27,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Battery_Last_Change_Mon\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Battery_Last_Change_Mon"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "Last_Aattery_Month",
+        "type": "singlestat",
+        "valueFontSize": "120%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "avg"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 2,
+          "x": 10,
+          "y": 21
+        },
+        "id": 26,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Battery_Last_Change_Day\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Battery_Last_Change_Day"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "Last_Aattery_day",
+        "type": "singlestat",
+        "valueFontSize": "120%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "avg"
+      },
+      {
+        "content": "<font color=gray size=7> 下次更換電池日期 : </font>",
+        "gridPos": {
+          "h": 3,
+          "w": 6,
+          "x": 12,
+          "y": 21
+        },
+        "id": 33,
+        "links": [],
+        "mode": "html",
+        "title": "UPS_A-Battery-NextChange_Date",
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 2,
+          "x": 18,
+          "y": 21
+        },
+        "id": 30,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Battery_Next_Change_Year\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Battery_Next_Change_Year"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "Next_Aattery_Year",
+        "type": "singlestat",
+        "valueFontSize": "120%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "avg"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 2,
+          "x": 20,
+          "y": 21
+        },
+        "id": 28,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Battery_Next_Change_Mon\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Battery_Next_Change_Mon"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "Next_Aattery_Month",
+        "type": "singlestat",
+        "valueFontSize": "120%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "avg"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 2,
+          "x": 22,
+          "y": 21
+        },
+        "id": 29,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Battery_Next_Change_Day\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Battery_Next_Change_Day"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "title": "Next_Aattery_Day",
+        "type": "singlestat",
+        "valueFontSize": "120%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "aliasColors": {
+          "Output_Volt": "dark-purple",
+          "inputVolt_A": "#f9e2d2",
+          "outputVolt_A": "#5195ce"
+        },
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "MySQL",
+        "fill": 1,
+        "gridPos": {
+          "h": 13,
+          "w": 12,
+          "x": 0,
+          "y": 24
+        },
+        "id": 22,
+        "legend": {
+          "alignAsTable": false,
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "rightSide": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 2,
+        "links": [],
+        "nullPointMode": "null",
+        "paceLength": 10,
+        "percentage": false,
+        "pointradius": 2,
+        "points": true,
+        "renderer": "flot",
+        "seriesOverrides": [
+          {
+            "alias": "inputVolt_A",
+            "yaxis": 2
+          },
+          {
+            "alias": "Output_Volt",
+            "yaxis": 1
+          }
+        ],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Input_Volt\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Input_Volt"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          },
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Output_Volt\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "B",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Output_Volt"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": "10m",
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "UPS_A-input / output Voltage",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "volt",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "volt",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {
+          "Temperature": "#c15c17",
+          "inputVolt_A": "rgb(67, 55, 238)",
+          "outputAmp_A": "#5195ce",
+          "outputVolt_A": "#eab839"
+        },
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "MySQL",
+        "fill": 2,
+        "gridPos": {
+          "h": 26,
+          "w": 12,
+          "x": 12,
+          "y": 24
+        },
+        "id": 23,
+        "legend": {
+          "alignAsTable": false,
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "rightSide": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 3,
+        "links": [],
+        "nullPointMode": "null",
+        "paceLength": 10,
+        "percentage": false,
+        "pointradius": 3,
+        "points": true,
+        "renderer": "flot",
+        "seriesOverrides": [
+          {
+            "alias": "inputVolt_A",
+            "yaxis": 2
+          },
+          {
+            "alias": "Temperature",
+            "yaxis": 2
+          },
+          {
+            "alias": "outputAmp_A",
+            "yaxis": 1
+          },
+          {
+            "alias": "Output_Amp",
+            "yaxis": 2
+          }
+        ],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Battery_Temp\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Battery_Temp"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          },
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Output_Amp\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "B",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Output_Amp"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": "10m",
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "UPS_A-tempurate / output Current",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "celsius",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "celsius",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {
+          "Output_Percent": "dark-red",
+          "inputPercent_A": "#9ac48a",
+          "inputVolt_A": "#f29191",
+          "inputWatt_A": "#dedaf7"
+        },
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "fill": 3,
+        "gridPos": {
+          "h": 13,
+          "w": 12,
+          "x": 0,
+          "y": 37
+        },
+        "id": 21,
+        "legend": {
+          "alignAsTable": false,
+          "avg": false,
+          "current": false,
+          "hideEmpty": false,
+          "hideZero": false,
+          "max": false,
+          "min": false,
+          "rightSide": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 4,
+        "links": [],
+        "nullPointMode": "null",
+        "paceLength": 10,
+        "percentage": false,
+        "pointradius": 3,
+        "points": true,
+        "renderer": "flot",
+        "seriesOverrides": [
+          {
+            "alias": "inputVolt_A",
+            "yaxis": 2
+          },
+          {
+            "alias": "inputPercent_A",
+            "yaxis": 2
+          },
+          {
+            "alias": "Output_Percent",
+            "yaxis": 2
+          }
+        ],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Output_Watt\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Output_Watt"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          },
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Output_Percent\nFROM UPS_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "B",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Output_Percent"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "UPS_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": "10m",
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "UPS_A-OutWatt / OutPercent",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "kwatt",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "percent",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      }
+    ],
+    "refresh": "30s",
+    "schemaVersion": 18,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-5m",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ]
+    },
+    "timezone": "",
+    "title": "UPS_A-DashBoard",
+    "uid": null,
+    "version": 0
+  },
+  "folderId": 0,
+  "overwrite": false
+}

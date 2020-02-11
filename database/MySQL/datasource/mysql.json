@@ -1,0 +1,8 @@
+{
+    "name": "factory", 
+    "type": "mysql", 
+    "host": "localhost:3306", 
+    "password": "imacuser", 
+    "user": "imac", 
+    "access": "direct"
+}

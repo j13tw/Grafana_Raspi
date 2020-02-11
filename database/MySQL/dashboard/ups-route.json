@@ -1,0 +1,5832 @@
+{
+  "dashboard": {
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": null,
+    "links": [],
+    "panels": [
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#3f6833",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 0,
+          "y": 0
+        },
+        "hideTimeOverride": false,
+        "id": 28,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "A",
+        "postfixFontSize": "100%",
+        "prefix": "輸入電流_A1",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "repeat": null,
+        "sparkline": {
+          "fillColor": "#f29191",
+          "full": true,
+          "lineColor": "#70dbed",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  In_A\nFROM Power_Box_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "In_A"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "timeFrom": "3m",
+        "title": "UPS_A-輸入電流線路_A",
+        "type": "singlestat",
+        "valueFontSize": "150%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#f4d598",
+          "rgba(237, 129, 40, 0.89)",
+          "#ea6460"
+        ],
+        "datasource": "MySQL",
+        "decimals": null,
+        "format": "none",
+        "gauge": {
+          "maxValue": 50,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 6,
+          "y": 0
+        },
+        "hideTimeOverride": false,
+        "id": 12,
+        "interval": null,
+        "links": [],
+        "mappingType": 2,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "0",
+            "text": "10",
+            "to": "5"
+          },
+          {
+            "from": "5",
+            "text": "20",
+            "to": "10"
+          },
+          {
+            "from": "10",
+            "text": "30",
+            "to": "15"
+          },
+          {
+            "from": "15",
+            "text": "40",
+            "to": "20"
+          },
+          {
+            "from": "20",
+            "text": "50",
+            "to": "25"
+          },
+          {
+            "from": "25",
+            "text": "60",
+            "to": "30"
+          },
+          {
+            "from": "30",
+            "text": "70",
+            "to": "35"
+          },
+          {
+            "from": "35",
+            "text": "80",
+            "to": "40"
+          },
+          {
+            "from": "40",
+            "text": "90",
+            "to": "45"
+          },
+          {
+            "from": "45",
+            "text": "100",
+            "to": "50"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  In_A\nFROM Power_Box_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "In_A"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "25, 40",
+        "timeFrom": "3m",
+        "title": "UPS_A-輸入電流線路_A(備載比例)",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "10",
+            "value": "3"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#d44a3a",
+          "#3f6833",
+          "#299c46"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 12,
+          "y": 0
+        },
+        "hideTimeOverride": false,
+        "id": 2,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "A",
+        "postfixFontSize": "100%",
+        "prefix": "輸入電流_B1",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "repeat": null,
+        "sparkline": {
+          "fillColor": "rgba(252, 234, 202, 0.43)",
+          "full": true,
+          "lineColor": "#70dbed",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  In_A\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "In_A"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "timeFrom": "3m",
+        "title": "UPS_B-輸入電流線路_A",
+        "type": "singlestat",
+        "valueFontSize": "150%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#dedaf7",
+          "#806eb7",
+          "#ea6460"
+        ],
+        "datasource": "MySQL",
+        "decimals": null,
+        "format": "none",
+        "gauge": {
+          "maxValue": 50,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 18,
+          "y": 0
+        },
+        "hideTimeOverride": false,
+        "id": 30,
+        "interval": null,
+        "links": [],
+        "mappingType": 2,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "0",
+            "text": "10",
+            "to": "5"
+          },
+          {
+            "from": "5",
+            "text": "20",
+            "to": "10"
+          },
+          {
+            "from": "10",
+            "text": "30",
+            "to": "15"
+          },
+          {
+            "from": "15",
+            "text": "40",
+            "to": "20"
+          },
+          {
+            "from": "20",
+            "text": "50",
+            "to": "25"
+          },
+          {
+            "from": "25",
+            "text": "60",
+            "to": "30"
+          },
+          {
+            "from": "30",
+            "text": "70",
+            "to": "35"
+          },
+          {
+            "from": "35",
+            "text": "80",
+            "to": "40"
+          },
+          {
+            "from": "40",
+            "text": "90",
+            "to": "45"
+          },
+          {
+            "from": "45",
+            "text": "100",
+            "to": "50"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  In_A\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "In_A"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "25, 40",
+        "timeFrom": "3m",
+        "title": "UPS_B-輸入電流線路_A(備載比例)",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "10",
+            "value": "3"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#d44a3a",
+          "rgba(237, 129, 40, 0.89)",
+          "#299c46"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 0,
+          "y": 5
+        },
+        "id": 4,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "A",
+        "postfixFontSize": "100%",
+        "prefix": "輸入電流_A2",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#3f2b5b",
+          "full": true,
+          "lineColor": "#511749",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  In_B\nFROM Power_Box_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "In_B"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "timeFrom": "3m",
+        "title": "UPS_A-輸入電流線路_B",
+        "type": "singlestat",
+        "valueFontSize": "150%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#aea2e0",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 50,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 6,
+          "y": 5
+        },
+        "id": 16,
+        "interval": null,
+        "links": [],
+        "mappingType": 2,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "0",
+            "text": "10",
+            "to": "5"
+          },
+          {
+            "from": "5",
+            "text": "20",
+            "to": "10"
+          },
+          {
+            "from": "10",
+            "text": "30",
+            "to": "15"
+          },
+          {
+            "from": "15",
+            "text": "40",
+            "to": "20"
+          },
+          {
+            "from": "20",
+            "text": "50",
+            "to": "25"
+          },
+          {
+            "from": "25",
+            "text": "60",
+            "to": "30"
+          },
+          {
+            "from": "30",
+            "text": "70",
+            "to": "35"
+          },
+          {
+            "from": "35",
+            "text": "80",
+            "to": "40"
+          },
+          {
+            "from": "40",
+            "text": "90",
+            "to": "45"
+          },
+          {
+            "from": "45",
+            "text": "100",
+            "to": "50"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  In_B\nFROM Power_Box_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "In_B"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "25,40",
+        "timeFrom": "3m",
+        "title": "UPS_A-輸入電流線路_B(備載比例)",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          },
+          {
+            "op": "=",
+            "text": "",
+            "value": ""
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#508642",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 12,
+          "y": 5
+        },
+        "id": 31,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "A",
+        "postfixFontSize": "100%",
+        "prefix": "輸入電流_B2",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(22, 185, 204, 0.53)",
+          "full": true,
+          "lineColor": "#511749",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  In_B\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "In_B"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "timeFrom": "3m",
+        "title": "UPS_B-輸入電流線路_B",
+        "type": "singlestat",
+        "valueFontSize": "150%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#64b0c8",
+          "#fceaca",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 50,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 18,
+          "y": 5
+        },
+        "id": 32,
+        "interval": null,
+        "links": [],
+        "mappingType": 2,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "0",
+            "text": "10",
+            "to": "5"
+          },
+          {
+            "from": "5",
+            "text": "20",
+            "to": "10"
+          },
+          {
+            "from": "10",
+            "text": "30",
+            "to": "15"
+          },
+          {
+            "from": "15",
+            "text": "40",
+            "to": "20"
+          },
+          {
+            "from": "20",
+            "text": "50",
+            "to": "25"
+          },
+          {
+            "from": "25",
+            "text": "60",
+            "to": "30"
+          },
+          {
+            "from": "30",
+            "text": "70",
+            "to": "35"
+          },
+          {
+            "from": "35",
+            "text": "80",
+            "to": "40"
+          },
+          {
+            "from": "40",
+            "text": "90",
+            "to": "45"
+          },
+          {
+            "from": "45",
+            "text": "100",
+            "to": "50"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  In_B\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "In_B"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "25,40",
+        "timeFrom": "3m",
+        "title": "UPS_B-輸入電流線路_B(備載比例)",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          },
+          {
+            "op": "=",
+            "text": "",
+            "value": ""
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 0,
+          "y": 10
+        },
+        "id": 8,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " A",
+        "postfixFontSize": "100%",
+        "prefix": "A1 - A2 機櫃 :",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#806eb7",
+          "full": true,
+          "lineColor": "#aea2e0",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_A\nFROM Power_Box_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_A"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "timeFrom": "1m",
+        "title": "UPS_A-輸出電流線路_A",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#1f78c1",
+          "#82b5d8",
+          "#d44a3a"
+        ],
+        "format": "none",
+        "gauge": {
+          "maxValue": 20,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 4,
+          "y": 10
+        },
+        "id": 22,
+        "interval": null,
+        "links": [],
+        "mappingType": 2,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "0",
+            "text": "2.5",
+            "to": "0.5"
+          },
+          {
+            "from": "0.5",
+            "text": "5",
+            "to": "1"
+          },
+          {
+            "from": "1.5",
+            "text": "7.5",
+            "to": "2"
+          },
+          {
+            "from": "2",
+            "text": "10",
+            "to": "2.5"
+          },
+          {
+            "from": "2.5",
+            "text": "12.5",
+            "to": "3"
+          },
+          {
+            "from": "3",
+            "text": "15",
+            "to": "3.5"
+          },
+          {
+            "from": "3.5",
+            "text": "17.5",
+            "to": "4"
+          },
+          {
+            "from": "4",
+            "text": "20",
+            "to": "4.5"
+          },
+          {
+            "from": "4.5",
+            "text": "22.5",
+            "to": "5"
+          },
+          {
+            "from": "5",
+            "text": "25",
+            "to": "5.5"
+          },
+          {
+            "from": "5.5",
+            "text": "27.5",
+            "to": "6"
+          },
+          {
+            "from": "6",
+            "text": "30",
+            "to": "6.5"
+          },
+          {
+            "from": "6.5",
+            "text": "32.5",
+            "to": "7"
+          },
+          {
+            "from": "7",
+            "text": "35",
+            "to": "7.5"
+          },
+          {
+            "from": "7.5",
+            "text": "37.5",
+            "to": "8"
+          },
+          {
+            "from": "8",
+            "text": "40",
+            "to": "8.5"
+          },
+          {
+            "from": "8.5",
+            "text": "42.5",
+            "to": "9"
+          },
+          {
+            "from": "9",
+            "text": "45",
+            "to": "9.5"
+          },
+          {
+            "from": "9.5",
+            "text": "47.5",
+            "to": "10"
+          },
+          {
+            "from": "10",
+            "text": "50",
+            "to": "10.5"
+          },
+          {
+            "from": "10.5",
+            "text": "52.5",
+            "to": "11"
+          },
+          {
+            "from": "11",
+            "text": "55",
+            "to": "11.5"
+          },
+          {
+            "from": "11.5",
+            "text": "57.5",
+            "to": "12"
+          },
+          {
+            "from": "12",
+            "text": "60",
+            "to": "12.5"
+          },
+          {
+            "from": "12.5",
+            "text": "62.5",
+            "to": "13"
+          },
+          {
+            "from": "13",
+            "text": "65",
+            "to": "13.5"
+          },
+          {
+            "from": "13.5",
+            "text": "67.5",
+            "to": "14"
+          },
+          {
+            "from": "14",
+            "text": "70",
+            "to": "14.5"
+          },
+          {
+            "from": "14.5",
+            "text": "72.5",
+            "to": "15"
+          },
+          {
+            "from": "15",
+            "text": "75",
+            "to": "15.5"
+          },
+          {
+            "from": "15.5",
+            "text": "77.5",
+            "to": "16"
+          },
+          {
+            "from": "16.0",
+            "text": "80",
+            "to": "16.5"
+          },
+          {
+            "from": "16.5",
+            "text": "82.5",
+            "to": "17"
+          },
+          {
+            "from": "17",
+            "text": "85",
+            "to": "17.5"
+          },
+          {
+            "from": "17.5",
+            "text": "87.5",
+            "to": "18"
+          },
+          {
+            "from": "18",
+            "text": "90",
+            "to": "18.5"
+          },
+          {
+            "from": "18.5",
+            "text": "92.5",
+            "to": "19"
+          },
+          {
+            "from": "19",
+            "text": "95",
+            "to": "19.5"
+          },
+          {
+            "from": "19.5",
+            "text": "97.5",
+            "to": "20"
+          },
+          {
+            "from": "20",
+            "text": "100",
+            "to": ""
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_A\nFROM Power_Box_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_A"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "15, 18",
+        "timeFrom": "1m",
+        "title": "UPS_A-輸出電流線路_A(線路附載比)",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "columns": [],
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 8,
+          "y": 10
+        },
+        "id": 47,
+        "links": [],
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "date"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT OUT_A AS 電流, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM Power_Box_A\nORDER BY Time_Stamp DESC\nLIMIT 15;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "target": "db.cabinet_A.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"Current\", \"value\" : \"$OUT_V110_A\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "timeColumn": "time",
+            "type": "timeserie",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "UPS_A-歷史電流_A",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 12,
+          "y": 10
+        },
+        "id": 40,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " A",
+        "postfixFontSize": "100%",
+        "prefix": "B1 - B2 機櫃 : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#e0f9d7",
+          "full": true,
+          "lineColor": "#511749",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_A\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_A"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "timeFrom": "1m",
+        "title": "UPS_B-輸出電流線路_A",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#aea2e0",
+          "#f9d9f9",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 20,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 16,
+          "y": 10
+        },
+        "id": 42,
+        "interval": null,
+        "links": [],
+        "mappingType": 2,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "0",
+            "text": "2.5",
+            "to": "0.5"
+          },
+          {
+            "from": "0.5",
+            "text": "5",
+            "to": "1"
+          },
+          {
+            "from": "1",
+            "text": "7.5",
+            "to": "1.5"
+          },
+          {
+            "from": "1.5",
+            "text": "10",
+            "to": "2"
+          },
+          {
+            "from": "2",
+            "text": "12.5",
+            "to": "2.5"
+          },
+          {
+            "from": "2.5",
+            "text": "15",
+            "to": "3"
+          },
+          {
+            "from": "3",
+            "text": "17.5",
+            "to": "3.5"
+          },
+          {
+            "from": "3.5",
+            "text": "20",
+            "to": "4"
+          },
+          {
+            "from": "4",
+            "text": "22.5",
+            "to": "4.5"
+          },
+          {
+            "from": "4.5",
+            "text": "25",
+            "to": "5"
+          },
+          {
+            "from": "5",
+            "text": "27.5",
+            "to": "5.5"
+          },
+          {
+            "from": "5.5",
+            "text": "30",
+            "to": "6"
+          },
+          {
+            "from": "6",
+            "text": "32.5",
+            "to": "6.5"
+          },
+          {
+            "from": "6.5",
+            "text": "35",
+            "to": "7"
+          },
+          {
+            "from": "7",
+            "text": "37.5",
+            "to": "7.5"
+          },
+          {
+            "from": "7.5",
+            "text": "40",
+            "to": "8"
+          },
+          {
+            "from": "8",
+            "text": "42.5",
+            "to": "8.5"
+          },
+          {
+            "from": "8.5",
+            "text": "45",
+            "to": "9"
+          },
+          {
+            "from": "9",
+            "text": "47.5",
+            "to": "9.5"
+          },
+          {
+            "from": "9.5",
+            "text": "50",
+            "to": "10"
+          },
+          {
+            "from": "10",
+            "text": "52.5",
+            "to": "10.5"
+          },
+          {
+            "from": "10.5",
+            "text": "55",
+            "to": "11"
+          },
+          {
+            "from": "11",
+            "text": "57.5",
+            "to": "11.5"
+          },
+          {
+            "from": "11.5",
+            "text": "60",
+            "to": "12"
+          },
+          {
+            "from": "12",
+            "text": "62.5",
+            "to": "12.5"
+          },
+          {
+            "from": "12.5",
+            "text": "65",
+            "to": "13"
+          },
+          {
+            "from": "13",
+            "text": "67.5",
+            "to": "13.5"
+          },
+          {
+            "from": "13.5",
+            "text": "70",
+            "to": "14"
+          },
+          {
+            "from": "14",
+            "text": "72.5",
+            "to": "14.5"
+          },
+          {
+            "from": "14.5",
+            "text": "75",
+            "to": "15"
+          },
+          {
+            "from": "15",
+            "text": "77.5",
+            "to": "15.5"
+          },
+          {
+            "from": "15.5",
+            "text": "80",
+            "to": "16"
+          },
+          {
+            "from": "16",
+            "text": "82.5",
+            "to": "16.5"
+          },
+          {
+            "from": "16.5",
+            "text": "85",
+            "to": "17"
+          },
+          {
+            "from": "17",
+            "text": "87.5",
+            "to": "17.5"
+          },
+          {
+            "from": "17.5",
+            "text": "90",
+            "to": "18"
+          },
+          {
+            "from": "18",
+            "text": "92.5",
+            "to": "18.5"
+          },
+          {
+            "from": "18.5",
+            "text": "95",
+            "to": "19"
+          },
+          {
+            "from": "19",
+            "text": "97.5",
+            "to": "19.5"
+          },
+          {
+            "from": "19.5",
+            "text": "100",
+            "to": "20"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_A\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_A"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "15, 18",
+        "timeFrom": "1m",
+        "title": "UPS_B-輸出電流線路_A(線路附載比)",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "columns": [],
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 20,
+          "y": 10
+        },
+        "id": 52,
+        "links": [],
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "date"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT OUT_A AS 電流, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM Power_Box_B\nORDER BY Time_Stamp DESC\nLIMIT 15;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "target": "db.cabinet_B.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"Current\", \"value\" : \"$OUT_V110_A\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "timeColumn": "time",
+            "type": "timeserie",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "UPS_B-歷史電流_A",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#f2c96d",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 0,
+          "y": 15
+        },
+        "id": 6,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "A",
+        "postfixFontSize": "100%",
+        "prefix": "A3 - A4 機櫃 :",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": true,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_B\nFROM Power_Box_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_B"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "timeFrom": "1m",
+        "title": "UPS_A-輸出電流線路_B",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#f29191",
+          "#dedaf7",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 20,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 4,
+          "y": 15
+        },
+        "id": 26,
+        "interval": null,
+        "links": [],
+        "mappingType": 2,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "0",
+            "text": "2.5",
+            "to": "0.5"
+          },
+          {
+            "from": "0.5",
+            "text": "5",
+            "to": "1"
+          },
+          {
+            "from": "1",
+            "text": "7.5",
+            "to": "1.5"
+          },
+          {
+            "from": "1.5",
+            "text": "10",
+            "to": "2"
+          },
+          {
+            "from": "2",
+            "text": "12.5",
+            "to": "2.5"
+          },
+          {
+            "from": "2.5",
+            "text": "15",
+            "to": "3"
+          },
+          {
+            "from": "3",
+            "text": "17.5",
+            "to": "3.5"
+          },
+          {
+            "from": "3.5",
+            "text": "20",
+            "to": "4"
+          },
+          {
+            "from": "4",
+            "text": "22.5",
+            "to": "4.5"
+          },
+          {
+            "from": "4.5",
+            "text": "25",
+            "to": "5"
+          },
+          {
+            "from": "5",
+            "text": "27.5",
+            "to": "5.5"
+          },
+          {
+            "from": "5.5",
+            "text": "30",
+            "to": "6"
+          },
+          {
+            "from": "6",
+            "text": "32.5",
+            "to": "6.5"
+          },
+          {
+            "from": "6.5",
+            "text": "35",
+            "to": "7"
+          },
+          {
+            "from": "7",
+            "text": "37.5",
+            "to": "7.5"
+          },
+          {
+            "from": "7.5",
+            "text": "40",
+            "to": "8"
+          },
+          {
+            "from": "8",
+            "text": "42.5",
+            "to": "8.5"
+          },
+          {
+            "from": "8.5",
+            "text": "45",
+            "to": "9"
+          },
+          {
+            "from": "9",
+            "text": "47.5",
+            "to": "9.5"
+          },
+          {
+            "from": "9.5",
+            "text": "50",
+            "to": "10"
+          },
+          {
+            "from": "10",
+            "text": "52.5",
+            "to": "10.5"
+          },
+          {
+            "from": "10.5",
+            "text": "55",
+            "to": "11"
+          },
+          {
+            "from": "11",
+            "text": "57.5",
+            "to": "11.5"
+          },
+          {
+            "from": "11.5",
+            "text": "60",
+            "to": "12"
+          },
+          {
+            "from": "12",
+            "text": "62.5",
+            "to": "12.5"
+          },
+          {
+            "from": "12.5",
+            "text": "65",
+            "to": "13"
+          },
+          {
+            "from": "13",
+            "text": "67.5",
+            "to": "13.5"
+          },
+          {
+            "from": "13.5",
+            "text": "70",
+            "to": "14"
+          },
+          {
+            "from": "14",
+            "text": "72.5",
+            "to": "14.5"
+          },
+          {
+            "from": "14.5",
+            "text": "75",
+            "to": "15"
+          },
+          {
+            "from": "15",
+            "text": "77.5",
+            "to": "15.5"
+          },
+          {
+            "from": "15.5",
+            "text": "80",
+            "to": "16"
+          },
+          {
+            "from": "16",
+            "text": "82.5",
+            "to": "16.5"
+          },
+          {
+            "from": "16.5",
+            "text": "85",
+            "to": "17"
+          },
+          {
+            "from": "17",
+            "text": "87.5",
+            "to": "17.5"
+          },
+          {
+            "from": "17.5",
+            "text": "90",
+            "to": "18"
+          },
+          {
+            "from": "18",
+            "text": "92.5",
+            "to": "18.5"
+          },
+          {
+            "from": "18.5",
+            "text": "95",
+            "to": "19"
+          },
+          {
+            "from": "19",
+            "text": "97.5",
+            "to": "19.5"
+          },
+          {
+            "from": "19.5",
+            "text": "100",
+            "to": "20"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_B\nFROM Power_Box_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_B"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "15, 18",
+        "timeFrom": "1m",
+        "title": "UPS_A-輸出電流線路_B(線路附載比)",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "columns": [],
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 8,
+          "y": 15
+        },
+        "id": 48,
+        "links": [],
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "date"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT OUT_B AS 電流, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM Power_Box_A\nORDER BY Time_Stamp DESC\nLIMIT 15;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "target": "db.cabinet_A.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"Current\", \"value\" : \"$OUT_V110_B\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "timeColumn": "time",
+            "type": "timeserie",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "UPS_A-歷史電流_B",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 12,
+          "y": 15
+        },
+        "id": 39,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " A",
+        "postfixFontSize": "100%",
+        "prefix": "B3 - B4 機櫃 : ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(10, 80, 161, 0.31)",
+          "full": true,
+          "lineColor": "#cca300",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_B\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_B"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "timeFrom": "1m",
+        "title": "UPS_B-輸出電流線路_B",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "rgba(150, 115, 2, 0.48)",
+          "rgba(186, 67, 169, 0.61)",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 20,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 16,
+          "y": 15
+        },
+        "id": 45,
+        "interval": null,
+        "links": [],
+        "mappingType": 2,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "0",
+            "text": "2.5",
+            "to": "0.5"
+          },
+          {
+            "from": "0.5",
+            "text": "5",
+            "to": "1"
+          },
+          {
+            "from": "1",
+            "text": "7.5",
+            "to": "1.5"
+          },
+          {
+            "from": "1.5",
+            "text": "10",
+            "to": "2"
+          },
+          {
+            "from": "2",
+            "text": "12.5",
+            "to": "2.5"
+          },
+          {
+            "from": "2.5",
+            "text": "15",
+            "to": "3"
+          },
+          {
+            "from": "3",
+            "text": "17.5",
+            "to": "3.5"
+          },
+          {
+            "from": "3.5",
+            "text": "20",
+            "to": "4"
+          },
+          {
+            "from": "4",
+            "text": "22.5",
+            "to": "4.5"
+          },
+          {
+            "from": "4.5",
+            "text": "25",
+            "to": "5"
+          },
+          {
+            "from": "5",
+            "text": "27.5",
+            "to": "5.5"
+          },
+          {
+            "from": "5.5",
+            "text": "30",
+            "to": "6"
+          },
+          {
+            "from": "6",
+            "text": "32.5",
+            "to": "6.5"
+          },
+          {
+            "from": "6.5",
+            "text": "35",
+            "to": "7"
+          },
+          {
+            "from": "7",
+            "text": "37.5",
+            "to": "7.5"
+          },
+          {
+            "from": "7.5",
+            "text": "40",
+            "to": "8"
+          },
+          {
+            "from": "8",
+            "text": "42.5",
+            "to": "8.5"
+          },
+          {
+            "from": "8.5",
+            "text": "45",
+            "to": "9"
+          },
+          {
+            "from": "9",
+            "text": "47.5",
+            "to": "9.5"
+          },
+          {
+            "from": "9.5",
+            "text": "50",
+            "to": "10"
+          },
+          {
+            "from": "10",
+            "text": "52.5",
+            "to": "10.5"
+          },
+          {
+            "from": "10.5",
+            "text": "55",
+            "to": "11"
+          },
+          {
+            "from": "11",
+            "text": "57.5",
+            "to": "11.5"
+          },
+          {
+            "from": "11.5",
+            "text": "60",
+            "to": "12"
+          },
+          {
+            "from": "12",
+            "text": "62.5",
+            "to": "12.5"
+          },
+          {
+            "from": "12.5",
+            "text": "65",
+            "to": "13"
+          },
+          {
+            "from": "13",
+            "text": "67.5",
+            "to": "13.5"
+          },
+          {
+            "from": "13.5",
+            "text": "70",
+            "to": "14"
+          },
+          {
+            "from": "14",
+            "text": "72.5",
+            "to": "14.5"
+          },
+          {
+            "from": "14.5",
+            "text": "75",
+            "to": "15"
+          },
+          {
+            "from": "15",
+            "text": "77.5",
+            "to": "15.5"
+          },
+          {
+            "from": "15.5",
+            "text": "80",
+            "to": "16"
+          },
+          {
+            "from": "16",
+            "text": "82.5",
+            "to": "16.5"
+          },
+          {
+            "from": "16.5",
+            "text": "85",
+            "to": "17"
+          },
+          {
+            "from": "17",
+            "text": "87.5",
+            "to": "17.5"
+          },
+          {
+            "from": "17.5",
+            "text": "90",
+            "to": "18"
+          },
+          {
+            "from": "18",
+            "text": "92.5",
+            "to": "18.5"
+          },
+          {
+            "from": "18.5",
+            "text": "95",
+            "to": "19"
+          },
+          {
+            "from": "19",
+            "text": "97.5",
+            "to": "19.5"
+          },
+          {
+            "from": "19.5",
+            "text": "100",
+            "to": "20"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_B\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_B"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "15, 18",
+        "timeFrom": "1m",
+        "title": "UPS_B-輸出電流線路_B(線路附載比)",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "columns": [],
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 20,
+          "y": 15
+        },
+        "id": 53,
+        "links": [],
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "date"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT OUT_B AS 電流, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM Power_Box_B\nORDER BY Time_Stamp DESC\nLIMIT 15;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "target": "db.cabinet_B.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"Current\", \"value\" : \"$OUT_V110_B\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "timeColumn": "time",
+            "type": "timeserie",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "UPS_B-歷史電流_B",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#511749",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 0,
+          "y": 20
+        },
+        "id": 18,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " A",
+        "postfixFontSize": "100%",
+        "prefix": "A5 - A6 機櫃 :",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#dedaf7",
+          "full": true,
+          "lineColor": "#eab839",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_C\nFROM Power_Box_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_C"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "timeFrom": "1m",
+        "title": "UPS_A-輸出電流線路_C",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#806eb7",
+          "#7eb26d",
+          "#d44a3a"
+        ],
+        "format": "none",
+        "gauge": {
+          "maxValue": 20,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 4,
+          "y": 20
+        },
+        "id": 33,
+        "interval": null,
+        "links": [],
+        "mappingType": 2,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "0",
+            "text": "2.5",
+            "to": "0.5"
+          },
+          {
+            "from": "0.5",
+            "text": "5",
+            "to": "1"
+          },
+          {
+            "from": "1",
+            "text": "7.5",
+            "to": "1.5"
+          },
+          {
+            "from": "1.5",
+            "text": "10",
+            "to": "2"
+          },
+          {
+            "from": "2",
+            "text": "12.5",
+            "to": "2.5"
+          },
+          {
+            "from": "2.5",
+            "text": "15",
+            "to": "3"
+          },
+          {
+            "from": "3",
+            "text": "17.5",
+            "to": "3.5"
+          },
+          {
+            "from": "3.5",
+            "text": "20",
+            "to": "4"
+          },
+          {
+            "from": "4",
+            "text": "22.5",
+            "to": "4.5"
+          },
+          {
+            "from": "4.5",
+            "text": "25",
+            "to": "5"
+          },
+          {
+            "from": "5",
+            "text": "27.5",
+            "to": "5.5"
+          },
+          {
+            "from": "5.5",
+            "text": "30",
+            "to": "6"
+          },
+          {
+            "from": "6",
+            "text": "32.5",
+            "to": "6.5"
+          },
+          {
+            "from": "6.5",
+            "text": "35",
+            "to": "7"
+          },
+          {
+            "from": "7",
+            "text": "37.5",
+            "to": "7.5"
+          },
+          {
+            "from": "7.5",
+            "text": "40",
+            "to": "8"
+          },
+          {
+            "from": "8",
+            "text": "42.5",
+            "to": "8.5"
+          },
+          {
+            "from": "8.5",
+            "text": "45",
+            "to": "9"
+          },
+          {
+            "from": "9",
+            "text": "47.5",
+            "to": "9.5"
+          },
+          {
+            "from": "9.5",
+            "text": "50",
+            "to": "10"
+          },
+          {
+            "from": "10",
+            "text": "52.5",
+            "to": "10.5"
+          },
+          {
+            "from": "10.5",
+            "text": "55",
+            "to": "11"
+          },
+          {
+            "from": "11",
+            "text": "57.5",
+            "to": "11.5"
+          },
+          {
+            "from": "11.5",
+            "text": "60",
+            "to": "12"
+          },
+          {
+            "from": "12",
+            "text": "62.5",
+            "to": "12.5"
+          },
+          {
+            "from": "12.5",
+            "text": "65",
+            "to": "13"
+          },
+          {
+            "from": "13",
+            "text": "67.5",
+            "to": "13.5"
+          },
+          {
+            "from": "13.5",
+            "text": "70",
+            "to": "14"
+          },
+          {
+            "from": "14",
+            "text": "72.5",
+            "to": "14.5"
+          },
+          {
+            "from": "14.5",
+            "text": "75",
+            "to": "15"
+          },
+          {
+            "from": "15",
+            "text": "77.5",
+            "to": "15.5"
+          },
+          {
+            "from": "15.5",
+            "text": "80",
+            "to": "16"
+          },
+          {
+            "from": "16",
+            "text": "82.5",
+            "to": "16.5"
+          },
+          {
+            "from": "16.5",
+            "text": "85",
+            "to": "17"
+          },
+          {
+            "from": "17",
+            "text": "87.5",
+            "to": "17.5"
+          },
+          {
+            "from": "17.5",
+            "text": "90",
+            "to": "18"
+          },
+          {
+            "from": "18",
+            "text": "92.5",
+            "to": "18.5"
+          },
+          {
+            "from": "18.5",
+            "text": "95",
+            "to": "19"
+          },
+          {
+            "from": "19",
+            "text": "97.5",
+            "to": "19.5"
+          },
+          {
+            "from": "19.5",
+            "text": "100",
+            "to": "20"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_C\nFROM Power_Box_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_C"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "15, 18",
+        "timeFrom": "1m",
+        "title": "UPS_A-輸出電流線路_C(線路附載比)",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "columns": [],
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 8,
+          "y": 20
+        },
+        "id": 49,
+        "links": [],
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "date"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT OUT_C AS 電流, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM Power_Box_A\nORDER BY Time_Stamp DESC\nLIMIT 15;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "target": "db.cabinet_A.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"Current\", \"value\" : \"$OUT_V110_C\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "timeColumn": "time",
+            "type": "timeserie",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "UPS_A-歷史電流_C",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#299c46",
+          "rgba(237, 129, 40, 0.89)",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 12,
+          "y": 20
+        },
+        "id": 38,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " A",
+        "postfixFontSize": "100%",
+        "prefix": "B5 - B6 機櫃 :",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(216, 219, 171, 0.48)",
+          "full": true,
+          "lineColor": "#ba43a9",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_C\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_C"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "timeFrom": "1m",
+        "title": "UPS_B-輸出電流線路_C",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "rgba(177, 255, 51, 0.56)",
+          "#d683ce",
+          "#d44a3a"
+        ],
+        "format": "none",
+        "gauge": {
+          "maxValue": 20,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 16,
+          "y": 20
+        },
+        "id": 43,
+        "interval": null,
+        "links": [],
+        "mappingType": 2,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "0",
+            "text": "2.5",
+            "to": "0.5"
+          },
+          {
+            "from": "0.5",
+            "text": "5",
+            "to": "1"
+          },
+          {
+            "from": "1",
+            "text": "7.5",
+            "to": "1.5"
+          },
+          {
+            "from": "1.5",
+            "text": "10",
+            "to": "2"
+          },
+          {
+            "from": "2",
+            "text": "12.5",
+            "to": "2.5"
+          },
+          {
+            "from": "2.5",
+            "text": "15",
+            "to": "3"
+          },
+          {
+            "from": "3",
+            "text": "17.5",
+            "to": "3.5"
+          },
+          {
+            "from": "3.5",
+            "text": "20",
+            "to": "4"
+          },
+          {
+            "from": "4",
+            "text": "22.5",
+            "to": "4.5"
+          },
+          {
+            "from": "4.5",
+            "text": "25",
+            "to": "5"
+          },
+          {
+            "from": "5",
+            "text": "27.5",
+            "to": "5.5"
+          },
+          {
+            "from": "5.5",
+            "text": "30",
+            "to": "6"
+          },
+          {
+            "from": "6",
+            "text": "32.5",
+            "to": "6.5"
+          },
+          {
+            "from": "6.5",
+            "text": "35",
+            "to": "7"
+          },
+          {
+            "from": "7",
+            "text": "37.5",
+            "to": "7.5"
+          },
+          {
+            "from": "7.5",
+            "text": "40",
+            "to": "8"
+          },
+          {
+            "from": "8",
+            "text": "42.5",
+            "to": "8.5"
+          },
+          {
+            "from": "8.5",
+            "text": "45",
+            "to": "9"
+          },
+          {
+            "from": "9",
+            "text": "47.5",
+            "to": "9.5"
+          },
+          {
+            "from": "9.5",
+            "text": "50",
+            "to": "10"
+          },
+          {
+            "from": "10",
+            "text": "52.5",
+            "to": "10.5"
+          },
+          {
+            "from": "10.5",
+            "text": "55",
+            "to": "11"
+          },
+          {
+            "from": "11",
+            "text": "57.5",
+            "to": "11.5"
+          },
+          {
+            "from": "11.5",
+            "text": "60",
+            "to": "12"
+          },
+          {
+            "from": "12",
+            "text": "62.5",
+            "to": "12.5"
+          },
+          {
+            "from": "12.5",
+            "text": "65",
+            "to": "13"
+          },
+          {
+            "from": "13",
+            "text": "67.5",
+            "to": "13.5"
+          },
+          {
+            "from": "13.5",
+            "text": "70",
+            "to": "14"
+          },
+          {
+            "from": "14",
+            "text": "72.5",
+            "to": "14.5"
+          },
+          {
+            "from": "14.5",
+            "text": "75",
+            "to": "15"
+          },
+          {
+            "from": "15",
+            "text": "77.5",
+            "to": "15.5"
+          },
+          {
+            "from": "15.5",
+            "text": "80",
+            "to": "16"
+          },
+          {
+            "from": "16",
+            "text": "82.5",
+            "to": "16.5"
+          },
+          {
+            "from": "16.5",
+            "text": "85",
+            "to": "17"
+          },
+          {
+            "from": "17",
+            "text": "87.5",
+            "to": "17.5"
+          },
+          {
+            "from": "17.5",
+            "text": "90",
+            "to": "18"
+          },
+          {
+            "from": "18",
+            "text": "92.5",
+            "to": "18.5"
+          },
+          {
+            "from": "18.5",
+            "text": "95",
+            "to": "19"
+          },
+          {
+            "from": "19",
+            "text": "97.5",
+            "to": "19.5"
+          },
+          {
+            "from": "19.5",
+            "text": "100",
+            "to": "20"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_C\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_C"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "15, 18",
+        "timeFrom": "1m",
+        "title": "UPS_B-輸出電流線路_C(線路附載比)",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "columns": [],
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 20,
+          "y": 20
+        },
+        "id": 54,
+        "links": [],
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "date"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT OUT_C AS 電流, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM Power_Box_B\nORDER BY Time_Stamp DESC\nLIMIT 15;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "target": "db.cabinet_B.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"Current\", \"value\" : \"$OUT_V110_C\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "timeColumn": "time",
+            "type": "timeserie",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "UPS_B-歷史電流_C",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#d683ce",
+          "#0a437c",
+          "#d44a3a"
+        ],
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 0,
+          "y": 25
+        },
+        "id": 10,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "A",
+        "postfixFontSize": "100%",
+        "prefix": "A7 - A8 機櫃 :",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#fce2de",
+          "full": true,
+          "lineColor": "#70dbed",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_D\nFROM Power_Box_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_D"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "timeFrom": "1m",
+        "title": "UPS_A-輸出電流線路_D",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#6d1f62",
+          "#7eb26d",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 20,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 4,
+          "y": 25
+        },
+        "id": 35,
+        "interval": null,
+        "links": [],
+        "mappingType": 2,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "0",
+            "text": "2.5",
+            "to": "0.5"
+          },
+          {
+            "from": "0.5",
+            "text": "5",
+            "to": "1"
+          },
+          {
+            "from": "1",
+            "text": "7.5",
+            "to": "1.5"
+          },
+          {
+            "from": "1.5",
+            "text": "10",
+            "to": "2"
+          },
+          {
+            "from": "2",
+            "text": "12.5",
+            "to": "2.5"
+          },
+          {
+            "from": "2.5",
+            "text": "15",
+            "to": "3"
+          },
+          {
+            "from": "3",
+            "text": "17.5",
+            "to": "3.5"
+          },
+          {
+            "from": "3.5",
+            "text": "20",
+            "to": "4"
+          },
+          {
+            "from": "4",
+            "text": "22.5",
+            "to": "4.5"
+          },
+          {
+            "from": "4.5",
+            "text": "25",
+            "to": "5"
+          },
+          {
+            "from": "5",
+            "text": "27.5",
+            "to": "5.5"
+          },
+          {
+            "from": "5.5",
+            "text": "30",
+            "to": "6"
+          },
+          {
+            "from": "6",
+            "text": "32.5",
+            "to": "6.5"
+          },
+          {
+            "from": "6.5",
+            "text": "35",
+            "to": "7"
+          },
+          {
+            "from": "7",
+            "text": "37.5",
+            "to": "7.5"
+          },
+          {
+            "from": "7.5",
+            "text": "40",
+            "to": "8"
+          },
+          {
+            "from": "8",
+            "text": "42.5",
+            "to": "8.5"
+          },
+          {
+            "from": "8.5",
+            "text": "45",
+            "to": "9"
+          },
+          {
+            "from": "9",
+            "text": "47.5",
+            "to": "9.5"
+          },
+          {
+            "from": "9.5",
+            "text": "50",
+            "to": "10"
+          },
+          {
+            "from": "10",
+            "text": "52.5",
+            "to": "10.5"
+          },
+          {
+            "from": "10.5",
+            "text": "55",
+            "to": "11"
+          },
+          {
+            "from": "11",
+            "text": "57.5",
+            "to": "11.5"
+          },
+          {
+            "from": "11.5",
+            "text": "60",
+            "to": "12"
+          },
+          {
+            "from": "12",
+            "text": "62.5",
+            "to": "12.5"
+          },
+          {
+            "from": "12.5",
+            "text": "65",
+            "to": "13"
+          },
+          {
+            "from": "13",
+            "text": "67.5",
+            "to": "13.5"
+          },
+          {
+            "from": "13.5",
+            "text": "70",
+            "to": "14"
+          },
+          {
+            "from": "14",
+            "text": "72.5",
+            "to": "14.5"
+          },
+          {
+            "from": "14.5",
+            "text": "75",
+            "to": "15"
+          },
+          {
+            "from": "15",
+            "text": "77.5",
+            "to": "15.5"
+          },
+          {
+            "from": "15.5",
+            "text": "80",
+            "to": "16"
+          },
+          {
+            "from": "16",
+            "text": "82.5",
+            "to": "16.5"
+          },
+          {
+            "from": "16.5",
+            "text": "85",
+            "to": "17"
+          },
+          {
+            "from": "17",
+            "text": "87.5",
+            "to": "17.5"
+          },
+          {
+            "from": "17.5",
+            "text": "90",
+            "to": "18"
+          },
+          {
+            "from": "18",
+            "text": "92.5",
+            "to": "18.5"
+          },
+          {
+            "from": "18.5",
+            "text": "95",
+            "to": "19"
+          },
+          {
+            "from": "19",
+            "text": "97.5",
+            "to": "19.5"
+          },
+          {
+            "from": "19.5",
+            "text": "100",
+            "to": "20"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_D\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_D"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "15, 18",
+        "timeFrom": "1m",
+        "title": "UPS_A-輸出電流線路_D(線路附載比)",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "columns": [],
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 8,
+          "y": 25
+        },
+        "id": 50,
+        "links": [],
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": null,
+          "desc": false
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "date"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT OUT_D AS 電流, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM Power_Box_A\nORDER BY Time_Stamp DESC\nLIMIT 15;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "target": "db.cabinet_A.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"Current\", \"value\" : \"$OUT_V110_D\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "timeColumn": "time",
+            "type": "timeserie",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "UPS_A-歷史電流_D",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#5195ce",
+          "#511749",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 12,
+          "y": 25
+        },
+        "id": 37,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " A",
+        "postfixFontSize": "100%",
+        "prefix": "B7  -  B8 機櫃 :    ",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(203, 236, 13, 0.42)",
+          "full": true,
+          "lineColor": "#6d1f62",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_D\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_D"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "timeFrom": "1m",
+        "title": "UPS_B-輸出電流線路_D",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "rgba(63, 104, 51, 0.53)",
+          "#dedaf7",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 20,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 16,
+          "y": 25
+        },
+        "id": 44,
+        "interval": null,
+        "links": [],
+        "mappingType": 2,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "0",
+            "text": "2.5",
+            "to": "0.5"
+          },
+          {
+            "from": "0.5",
+            "text": "5",
+            "to": "1"
+          },
+          {
+            "from": "1",
+            "text": "7.5",
+            "to": "1.5"
+          },
+          {
+            "from": "1.5",
+            "text": "10",
+            "to": "2"
+          },
+          {
+            "from": "2",
+            "text": "12.5",
+            "to": "2.5"
+          },
+          {
+            "from": "2.5",
+            "text": "15",
+            "to": "3"
+          },
+          {
+            "from": "3",
+            "text": "17.5",
+            "to": "3.5"
+          },
+          {
+            "from": "3.5",
+            "text": "20",
+            "to": "4"
+          },
+          {
+            "from": "4",
+            "text": "22.5",
+            "to": "4.5"
+          },
+          {
+            "from": "4.5",
+            "text": "25",
+            "to": "5"
+          },
+          {
+            "from": "5",
+            "text": "27.5",
+            "to": "5.5"
+          },
+          {
+            "from": "5.5",
+            "text": "30",
+            "to": "6"
+          },
+          {
+            "from": "6",
+            "text": "32.5",
+            "to": "6.5"
+          },
+          {
+            "from": "6.5",
+            "text": "35",
+            "to": "7"
+          },
+          {
+            "from": "7",
+            "text": "37.5",
+            "to": "7.5"
+          },
+          {
+            "from": "7.5",
+            "text": "40",
+            "to": "8"
+          },
+          {
+            "from": "8",
+            "text": "42.5",
+            "to": "8.5"
+          },
+          {
+            "from": "8.5",
+            "text": "45",
+            "to": "9"
+          },
+          {
+            "from": "9",
+            "text": "47.5",
+            "to": "9.5"
+          },
+          {
+            "from": "9.5",
+            "text": "50",
+            "to": "10"
+          },
+          {
+            "from": "10",
+            "text": "52.5",
+            "to": "10.5"
+          },
+          {
+            "from": "10.5",
+            "text": "55",
+            "to": "11"
+          },
+          {
+            "from": "11",
+            "text": "57.5",
+            "to": "11.5"
+          },
+          {
+            "from": "11.5",
+            "text": "60",
+            "to": "12"
+          },
+          {
+            "from": "12",
+            "text": "62.5",
+            "to": "12.5"
+          },
+          {
+            "from": "12.5",
+            "text": "65",
+            "to": "13"
+          },
+          {
+            "from": "13",
+            "text": "67.5",
+            "to": "13.5"
+          },
+          {
+            "from": "13.5",
+            "text": "70",
+            "to": "14"
+          },
+          {
+            "from": "14",
+            "text": "72.5",
+            "to": "14.5"
+          },
+          {
+            "from": "14.5",
+            "text": "75",
+            "to": "15"
+          },
+          {
+            "from": "15",
+            "text": "77.5",
+            "to": "15.5"
+          },
+          {
+            "from": "15.5",
+            "text": "80",
+            "to": "16"
+          },
+          {
+            "from": "16",
+            "text": "82.5",
+            "to": "16.5"
+          },
+          {
+            "from": "16.5",
+            "text": "85",
+            "to": "17"
+          },
+          {
+            "from": "17",
+            "text": "87.5",
+            "to": "17.5"
+          },
+          {
+            "from": "17.5",
+            "text": "90",
+            "to": "18"
+          },
+          {
+            "from": "18",
+            "text": "92.5",
+            "to": "18.5"
+          },
+          {
+            "from": "18.5",
+            "text": "95",
+            "to": "19"
+          },
+          {
+            "from": "19",
+            "text": "97.5",
+            "to": "19.5"
+          },
+          {
+            "from": "19.5",
+            "text": "100",
+            "to": "20"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_D\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_D"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "15, 18",
+        "timeFrom": "1m",
+        "title": "UPS_B-輸出電流線路_D(線路附載比)",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "columns": [],
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 20,
+          "y": 25
+        },
+        "id": 55,
+        "links": [],
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "date"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT OUT_D AS 電流, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM Power_Box_B\nORDER BY Time_Stamp DESC\nLIMIT 15;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "target": "db.cabinet_B.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"Current\", \"value\" : \"$OUT_V110_D\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "timeColumn": "time",
+            "type": "timeserie",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "UPS_B-歷史電流_D",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#447ebc",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 0,
+          "y": 30
+        },
+        "id": 14,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "A",
+        "postfixFontSize": "100%",
+        "prefix": "A9 - A10 機櫃 :",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "#f4d598",
+          "full": true,
+          "lineColor": "#5195ce",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_E\nFROM Power_Box_A\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_E"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_A",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "timeFrom": "1m",
+        "title": "UPS_A-輸出電流線路_E",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#f29191",
+          "#3f2b5b",
+          "#e24d42"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 20,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 4,
+          "y": 30
+        },
+        "id": 34,
+        "interval": null,
+        "links": [],
+        "mappingType": 2,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "0",
+            "text": "2.5",
+            "to": "0.5"
+          },
+          {
+            "from": "0.5",
+            "text": "5",
+            "to": "1"
+          },
+          {
+            "from": "1",
+            "text": "7.5",
+            "to": "1.5"
+          },
+          {
+            "from": "1.5",
+            "text": "10",
+            "to": "2"
+          },
+          {
+            "from": "2",
+            "text": "12.5",
+            "to": "2.5"
+          },
+          {
+            "from": "2.5",
+            "text": "15",
+            "to": "3"
+          },
+          {
+            "from": "3",
+            "text": "17.5",
+            "to": "3.5"
+          },
+          {
+            "from": "3.5",
+            "text": "20",
+            "to": "4"
+          },
+          {
+            "from": "4",
+            "text": "22.5",
+            "to": "4.5"
+          },
+          {
+            "from": "4.5",
+            "text": "25",
+            "to": "5"
+          },
+          {
+            "from": "5",
+            "text": "27.5",
+            "to": "5.5"
+          },
+          {
+            "from": "5.5",
+            "text": "30",
+            "to": "6"
+          },
+          {
+            "from": "6",
+            "text": "32.5",
+            "to": "6.5"
+          },
+          {
+            "from": "6.5",
+            "text": "35",
+            "to": "7"
+          },
+          {
+            "from": "7",
+            "text": "37.5",
+            "to": "7.5"
+          },
+          {
+            "from": "7.5",
+            "text": "40",
+            "to": "8"
+          },
+          {
+            "from": "8",
+            "text": "42.5",
+            "to": "8.5"
+          },
+          {
+            "from": "8.5",
+            "text": "45",
+            "to": "9"
+          },
+          {
+            "from": "9",
+            "text": "47.5",
+            "to": "9.5"
+          },
+          {
+            "from": "9.5",
+            "text": "50",
+            "to": "10"
+          },
+          {
+            "from": "10",
+            "text": "52.5",
+            "to": "10.5"
+          },
+          {
+            "from": "10.5",
+            "text": "55",
+            "to": "11"
+          },
+          {
+            "from": "11",
+            "text": "57.5",
+            "to": "11.5"
+          },
+          {
+            "from": "11.5",
+            "text": "60",
+            "to": "12"
+          },
+          {
+            "from": "12",
+            "text": "62.5",
+            "to": "12.5"
+          },
+          {
+            "from": "12.5",
+            "text": "65",
+            "to": "13"
+          },
+          {
+            "from": "13",
+            "text": "67.5",
+            "to": "13.5"
+          },
+          {
+            "from": "13.5",
+            "text": "70",
+            "to": "14"
+          },
+          {
+            "from": "14",
+            "text": "72.5",
+            "to": "14.5"
+          },
+          {
+            "from": "14.5",
+            "text": "75",
+            "to": "15"
+          },
+          {
+            "from": "15",
+            "text": "77.5",
+            "to": "15.5"
+          },
+          {
+            "from": "15.5",
+            "text": "80",
+            "to": "16"
+          },
+          {
+            "from": "16",
+            "text": "82.5",
+            "to": "16.5"
+          },
+          {
+            "from": "16.5",
+            "text": "85",
+            "to": "17"
+          },
+          {
+            "from": "17",
+            "text": "87.5",
+            "to": "17.5"
+          },
+          {
+            "from": "17.5",
+            "text": "90",
+            "to": "18"
+          },
+          {
+            "from": "18",
+            "text": "92.5",
+            "to": "18.5"
+          },
+          {
+            "from": "18.5",
+            "text": "95",
+            "to": "19"
+          },
+          {
+            "from": "19",
+            "text": "97.5",
+            "to": "19.5"
+          },
+          {
+            "from": "19.5",
+            "text": "100",
+            "to": "20"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_E\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_E"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "15, 18",
+        "timeFrom": "1m",
+        "title": "UPS_A-輸出電流線路_E(線路附載比)",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "columns": [],
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 8,
+          "y": 30
+        },
+        "id": 51,
+        "links": [],
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "date"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT OUT_E AS 電流, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM Power_Box_A\nORDER BY Time_Stamp DESC\nLIMIT 15;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "target": "db.cabinet_A.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"Current\", \"value\" : \"$OUT_V110_E\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "timeColumn": "time",
+            "type": "timeserie",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "UPS_A-歷史電流_E",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": true,
+        "colors": [
+          "#299c46",
+          "#64b0c8",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 100,
+          "minValue": 0,
+          "show": false,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 12,
+          "y": 30
+        },
+        "id": 36,
+        "interval": null,
+        "links": [],
+        "mappingType": 1,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": " A",
+        "postfixFontSize": "100%",
+        "prefix": "B9 - B10 機櫃 :",
+        "prefixFontSize": "100%",
+        "rangeMaps": [
+          {
+            "from": "null",
+            "text": "N/A",
+            "to": "null"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(224, 117, 45, 0.37)",
+          "full": true,
+          "lineColor": "#dedaf7",
+          "show": true
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_E\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_E"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "",
+        "timeFrom": "1m",
+        "title": "UPS_B-輸出電流線路_E",
+        "type": "singlestat",
+        "valueFontSize": "100%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "cacheTimeout": null,
+        "colorBackground": false,
+        "colorValue": false,
+        "colors": [
+          "#5195ce",
+          "#f2c96d",
+          "#d44a3a"
+        ],
+        "datasource": "MySQL",
+        "format": "none",
+        "gauge": {
+          "maxValue": 20,
+          "minValue": 0,
+          "show": true,
+          "thresholdLabels": false,
+          "thresholdMarkers": true
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 16,
+          "y": 30
+        },
+        "id": 41,
+        "interval": null,
+        "links": [],
+        "mappingType": 2,
+        "mappingTypes": [
+          {
+            "name": "value to text",
+            "value": 1
+          },
+          {
+            "name": "range to text",
+            "value": 2
+          }
+        ],
+        "maxDataPoints": 100,
+        "nullPointMode": "connected",
+        "nullText": null,
+        "postfix": "%",
+        "postfixFontSize": "50%",
+        "prefix": "",
+        "prefixFontSize": "50%",
+        "rangeMaps": [
+          {
+            "from": "0",
+            "text": "2.5",
+            "to": "0.5"
+          },
+          {
+            "from": "0.5",
+            "text": "5",
+            "to": "1"
+          },
+          {
+            "from": "1",
+            "text": "7.5",
+            "to": "1.5"
+          },
+          {
+            "from": "1.5",
+            "text": "10",
+            "to": "2"
+          },
+          {
+            "from": "2",
+            "text": "12.5",
+            "to": "2.5"
+          },
+          {
+            "from": "2.5",
+            "text": "15",
+            "to": "3"
+          },
+          {
+            "from": "3",
+            "text": "17.5",
+            "to": "3.5"
+          },
+          {
+            "from": "3.5",
+            "text": "20",
+            "to": "4"
+          },
+          {
+            "from": "4",
+            "text": "22.5",
+            "to": "4.5"
+          },
+          {
+            "from": "4.5",
+            "text": "25",
+            "to": "5"
+          },
+          {
+            "from": "5",
+            "text": "27.5",
+            "to": "5.5"
+          },
+          {
+            "from": "5.5",
+            "text": "30",
+            "to": "6"
+          },
+          {
+            "from": "6",
+            "text": "32.5",
+            "to": "6.5"
+          },
+          {
+            "from": "6.5",
+            "text": "35",
+            "to": "7"
+          },
+          {
+            "from": "7",
+            "text": "37.5",
+            "to": "7.5"
+          },
+          {
+            "from": "7.5",
+            "text": "40",
+            "to": "8"
+          },
+          {
+            "from": "8",
+            "text": "42.5",
+            "to": "8.5"
+          },
+          {
+            "from": "8.5",
+            "text": "45",
+            "to": "9"
+          },
+          {
+            "from": "9",
+            "text": "47.5",
+            "to": "9.5"
+          },
+          {
+            "from": "9.5",
+            "text": "50",
+            "to": "10"
+          },
+          {
+            "from": "10",
+            "text": "52.5",
+            "to": "10.5"
+          },
+          {
+            "from": "10.5",
+            "text": "55",
+            "to": "11"
+          },
+          {
+            "from": "11",
+            "text": "57.5",
+            "to": "11.5"
+          },
+          {
+            "from": "11.5",
+            "text": "60",
+            "to": "12"
+          },
+          {
+            "from": "12",
+            "text": "62.5",
+            "to": "12.5"
+          },
+          {
+            "from": "12.5",
+            "text": "65",
+            "to": "13"
+          },
+          {
+            "from": "13",
+            "text": "67.5",
+            "to": "13.5"
+          },
+          {
+            "from": "13.5",
+            "text": "70",
+            "to": "14"
+          },
+          {
+            "from": "14",
+            "text": "72.5",
+            "to": "14.5"
+          },
+          {
+            "from": "14.5",
+            "text": "75",
+            "to": "15"
+          },
+          {
+            "from": "15",
+            "text": "77.5",
+            "to": "15.5"
+          },
+          {
+            "from": "15.5",
+            "text": "80",
+            "to": "16"
+          },
+          {
+            "from": "16",
+            "text": "82.5",
+            "to": "16.5"
+          },
+          {
+            "from": "16.5",
+            "text": "85",
+            "to": "17"
+          },
+          {
+            "from": "17",
+            "text": "87.5",
+            "to": "17.5"
+          },
+          {
+            "from": "17.5",
+            "text": "90",
+            "to": "18"
+          },
+          {
+            "from": "18",
+            "text": "92.5",
+            "to": "18.5"
+          },
+          {
+            "from": "18.5",
+            "text": "95",
+            "to": "19"
+          },
+          {
+            "from": "19",
+            "text": "97.5",
+            "to": "19.5"
+          },
+          {
+            "from": "19.5",
+            "text": "100",
+            "to": "20"
+          }
+        ],
+        "sparkline": {
+          "fillColor": "rgba(31, 118, 189, 0.18)",
+          "full": false,
+          "lineColor": "rgb(31, 120, 193)",
+          "show": false
+        },
+        "tableColumn": "",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  Time_Stamp AS \"time\",\n  Out_E\nFROM Power_Box_B\nWHERE\n  $__timeFilter(Time_Stamp)\nORDER BY Time_Stamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Out_E"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "Power_Box_B",
+            "timeColumn": "Time_Stamp",
+            "timeColumnType": "datetime",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "thresholds": "15, 18",
+        "timeFrom": "1m",
+        "title": "UPS_B-輸出電流線路_E(線路附載比)",
+        "type": "singlestat",
+        "valueFontSize": "80%",
+        "valueMaps": [
+          {
+            "op": "=",
+            "text": "N/A",
+            "value": "null"
+          }
+        ],
+        "valueName": "current"
+      },
+      {
+        "columns": [],
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 20,
+          "y": 30
+        },
+        "id": 56,
+        "links": [],
+        "pageSize": null,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "Time",
+            "type": "date"
+          },
+          {
+            "alias": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT OUT_E AS 電流, DATE_ADD(Time_Stamp, INTERVAL 8 HOUR) AS 更新時間 FROM Power_Box_B\nORDER BY Time_Stamp DESC\nLIMIT 15;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "target": "db.cabinet_B.aggregate([\n{\"$sort\": {\"date\" : -1}},\n{\"$limit\" : 15},\n{\"$project\" : {\"name\" : \"Current\", \"value\" : \"$OUT_V110_E\",  \"ts\" : \"$date\",  \"_id\" : 0 }}\n])",
+            "timeColumn": "time",
+            "type": "timeserie",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "UPS_B-歷史電流_E",
+        "transform": "table",
+        "type": "table"
+      }
+    ],
+    "refresh": "10s",
+    "schemaVersion": 18,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-15m",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ]
+    },
+    "timezone": "",
+    "title": "UPS_Route_Current-DashBoard",
+    "uid": null,
+    "version": 0
+  },
+  "folderId": 0,
+  "overwrite": false
+}
