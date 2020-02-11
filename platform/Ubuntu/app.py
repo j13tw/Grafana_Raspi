@@ -21,7 +21,7 @@ os.system('mysql -u root -proot -e "GRANT ALL PRIVILEGES ON factory.* TO \'imac\
 os.system('mysql -u root -proot -e "FLUSH PRIVILEGES;"')
 os.system("python3 ../../database/MySQL/Create_Tables.py")
 os.system("apt-get install supervisor -y")
-os.system("cp ./dataTransport.conf /etc/supervisor/")
+os.system("cp ./dataTransport.conf /etc/supervisor/conf.d")
 os.system("service supervisor restart")
 
 datasources = open("../../database/MySQL/datasource/mysql.json", "r")
