@@ -61,6 +61,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": " °C",
         "postfixFontSize": "100%",
         "prefix": "環境溫度:",
@@ -173,6 +174,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": " %RH",
         "postfixFontSize": "100%",
         "prefix": "環境濕度:",
@@ -276,6 +278,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": " ppm",
         "postfixFontSize": "100%",
         "prefix": "CO2 濃度:",
@@ -379,6 +382,7 @@
         "maxDataPoints": 100,
         "nullPointMode": "connected",
         "nullText": null,
+        "options": {},
         "postfix": " °C",
         "postfixFontSize": "100%",
         "prefix": "露點溫度:",
@@ -450,12 +454,14 @@
         "dashes": false,
         "datasource": "MySQL",
         "fill": 3,
+        "fillGradient": 0,
         "gridPos": {
           "h": 7,
           "w": 19,
           "x": 0,
           "y": 4
         },
+        "hiddenSeries": false,
         "hideTimeOverride": false,
         "id": 6,
         "legend": {
@@ -472,6 +478,9 @@
         "linewidth": 1,
         "links": [],
         "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
         "paceLength": 10,
         "percentage": false,
         "pointradius": 0.5,
@@ -569,6 +578,7 @@
         },
         "id": 20,
         "links": [],
+        "options": {},
         "pageSize": 15,
         "scroll": true,
         "showHeader": true,
@@ -579,12 +589,14 @@
         "styles": [
           {
             "alias": "Time",
+            "align": "auto",
             "dateFormat": "YYYY-MM-DD HH:mm:ss",
             "pattern": "Time",
             "type": "date"
           },
           {
             "alias": "",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -639,12 +651,14 @@
         "dashes": false,
         "datasource": "MySQL",
         "fill": 1,
+        "fillGradient": 0,
         "gridPos": {
           "h": 7,
           "w": 19,
           "x": 0,
           "y": 11
         },
+        "hiddenSeries": false,
         "id": 8,
         "legend": {
           "avg": false,
@@ -659,6 +673,9 @@
         "linewidth": 2,
         "links": [],
         "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
         "paceLength": 10,
         "percentage": false,
         "pointradius": 5,
@@ -746,6 +763,7 @@
       },
       {
         "columns": [],
+        "datasource": null,
         "fontSize": "90%",
         "gridPos": {
           "h": 7,
@@ -755,6 +773,7 @@
         },
         "id": 21,
         "links": [],
+        "options": {},
         "pageSize": 15,
         "scroll": true,
         "showHeader": true,
@@ -765,12 +784,14 @@
         "styles": [
           {
             "alias": "Time",
+            "align": "auto",
             "dateFormat": "YYYY-MM-DD HH:mm:ss",
             "pattern": "Time",
             "type": "date"
           },
           {
             "alias": "",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -823,13 +844,16 @@
         "bars": false,
         "dashLength": 10,
         "dashes": false,
+        "datasource": null,
         "fill": 3,
+        "fillGradient": 0,
         "gridPos": {
           "h": 7,
           "w": 19,
           "x": 0,
           "y": 18
         },
+        "hiddenSeries": false,
         "id": 4,
         "legend": {
           "avg": false,
@@ -844,6 +868,9 @@
         "linewidth": 3,
         "links": [],
         "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
         "paceLength": 10,
         "percentage": false,
         "pointradius": 5,
@@ -926,6 +953,7 @@
       },
       {
         "columns": [],
+        "datasource": null,
         "fontSize": "90%",
         "gridPos": {
           "h": 7,
@@ -935,6 +963,7 @@
         },
         "id": 22,
         "links": [],
+        "options": {},
         "pageSize": 15,
         "scroll": true,
         "showHeader": true,
@@ -945,12 +974,14 @@
         "styles": [
           {
             "alias": "Time",
+            "align": "auto",
             "dateFormat": "YYYY-MM-DD HH:mm:ss",
             "pattern": "Time",
             "type": "date"
           },
           {
             "alias": "",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -1005,13 +1036,16 @@
         "bars": false,
         "dashLength": 10,
         "dashes": false,
+        "datasource": null,
         "fill": 3,
+        "fillGradient": 0,
         "gridPos": {
           "h": 7,
           "w": 19,
           "x": 0,
           "y": 25
         },
+        "hiddenSeries": false,
         "hideTimeOverride": false,
         "id": 2,
         "legend": {
@@ -1027,6 +1061,9 @@
         "linewidth": 2,
         "links": [],
         "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
         "paceLength": 10,
         "percentage": false,
         "pointradius": 5,
@@ -1109,6 +1146,7 @@
       },
       {
         "columns": [],
+        "datasource": null,
         "fontSize": "90%",
         "gridPos": {
           "h": 7,
@@ -1118,6 +1156,7 @@
         },
         "id": 23,
         "links": [],
+        "options": {},
         "pageSize": 15,
         "scroll": true,
         "showHeader": true,
@@ -1128,12 +1167,14 @@
         "styles": [
           {
             "alias": "Time",
+            "align": "auto",
             "dateFormat": "YYYY-MM-DD HH:mm:ss",
             "pattern": "Time",
             "type": "date"
           },
           {
             "alias": "",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -1183,7 +1224,7 @@
       }
     ],
     "refresh": "5s",
-    "schemaVersion": 18,
+    "schemaVersion": 22,
     "style": "dark",
     "tags": [],
     "templating": {
