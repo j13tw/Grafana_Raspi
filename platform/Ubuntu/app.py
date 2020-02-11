@@ -84,6 +84,11 @@ try:
             print("create ups-route dashboard")
         except:
             print("add ups-route dashboard error")
+        try:
+            requests.post("http://admin:admin@127.0.0.1:3000/api/dashboards/db", data=dashboard_air_condiction_info.encode('utf-8'), headers={"Content-Type": "application/json"})
+            print("create air_condiction dashboard")
+        except:
+            print("add air_condiction dashboard error")
     else:
         try:
             os.system("service grafana-server start")
