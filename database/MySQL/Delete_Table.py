@@ -62,7 +62,7 @@ try:
     try:
         # Delete Air_Condiction_B Table
         print("Delete Air_Condiction_B Table")
-        cur.execute('DROP TABLE Air_Condiction_A;')
+        cur.execute('DROP TABLE Air_Condiction_B;')
     except:
         print("Delete Air_Condiction_B Table Fail !")
     try:
@@ -70,7 +70,7 @@ try:
         print("Delete Air_Condiction Table")
         cur.execute('DROP TABLE Power_Box_A;')
     except:
-        print("Delete Air_Condiction Table Fail !")
+        print("Delete Power_Box_A Table Fail !")
     try:
         # Delete Power_Box_B Table
         print("Delete Power_Box_B Table")
