@@ -207,7 +207,7 @@ def on_message(client, userdata, msg):
                     str(batteryVolt_B) + ', ' + str(batteryRemain_Percent_B) + ', "' + str(batteryHealth_B) + '", "' + str(batteryStatus_B) + '", "' + str(batteryCharge_Mode_B) + '", ' + str(batteryTemp_B) + ', ' +\
                     str(lastBattery_Year_B) + ', ' + str(lastBattery_Mon_B) + ', ' + str(lastBattery_Day_B) + ', ' + \
                     str(nextBattery_Year_B) + ', ' + str(nextBattery_Mon_B) + ', ' + str(nextBattery_Day_B) + ');')
-    if topic == "air_condiction/#":
+    if topic == "air_condiction/A":
         key = json.loads(data)
         print(key["humi"], key["temp"])
         try:
@@ -220,7 +220,7 @@ def on_message(client, userdata, msg):
         except:
             print("Air_Condiction_A_ERROR")
     
-    if topic == "air_condiction/#":
+    if topic == "air_condiction/B":
         key = json.loads(data)
         print(key["humi"], key["temp"])
         try:
