@@ -207,12 +207,12 @@ def on_message(client, userdata, msg):
                     str(batteryVolt_B) + ', ' + str(batteryRemain_Percent_B) + ', "' + str(batteryHealth_B) + '", "' + str(batteryStatus_B) + '", "' + str(batteryCharge_Mode_B) + '", ' + str(batteryTemp_B) + ', ' +\
                     str(lastBattery_Year_B) + ', ' + str(lastBattery_Mon_B) + ', ' + str(lastBattery_Day_B) + ', ' + \
                     str(nextBattery_Year_B) + ', ' + str(nextBattery_Mon_B) + ', ' + str(nextBattery_Day_B) + ');')
-    if topic == "air-condition/A":
+    if topic == "air_condiction/#":
         key = json.loads(data)
-        print(key["humi"], key["temp"])
+        # print(key["humi"], key["temp"])
         try:
             # Insert Air_Condiction Table
-            print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['humi']) + ', ' + str(key['temp']) + ');')
+            # print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['humi']) + ', ' + str(key['temp']) + ');')
             cur.execute('INSERT INTO Air_Condiction_A \
                         (Time_Stamp, Humi, Temp) \
                         VALUE \
@@ -220,12 +220,12 @@ def on_message(client, userdata, msg):
         except:
             print("Air_Condiction_A_ERROR")
     
-    if topic == "air-condition/B":
+    if topic == "air_condiction/#":
         key = json.loads(data)
-        print(key["humi"], key["temp"])
+        # print(key["humi"], key["temp"])
         try:
             # Insert Air_Condiction Table
-            print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['humi']) + ', ' + str(key['temp']) + ');')
+            # print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['humi']) + ', ' + str(key['temp']) + ');')
             cur.execute('INSERT INTO Air_Condiction_B \
                         (Time_Stamp, Humi, Temp) \
                         VALUE \
