@@ -27,16 +27,16 @@ except:
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
-    client.subscribe("DL303/CO2")
-    client.subscribe("DL303/RH")
-    client.subscribe("DL303/TC")
-    client.subscribe("DL303/DC")
-    client.subscribe("ET7044/DOstatus")
-    client.subscribe("current")
-    client.subscribe("UPS_Monitor")
+    # client.subscribe("DL303/CO2")
+    # client.subscribe("DL303/RH")
+    # client.subscribe("DL303/TC")
+    # client.subscribe("DL303/DC")
+    # client.subscribe("ET7044/DOstatus")
+    # client.subscribe("current")
+    # client.subscribe("UPS_Monitor")
     client.subscribe("air_condiction/#")
-    client.subscribe("cabinet_A")
-    client.subscribe("cabinet_B")
+    # client.subscribe("cabinet_A")
+    # client.subscribe("cabinet_B")
 
 def on_message(client, userdata, msg):
     topic = msg.topic
@@ -211,7 +211,7 @@ def on_message(client, userdata, msg):
         key = json.loads(data)
         try:
             # Insert Air_Condiction Table
-            # print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['Humi']) + ', ' + str(key['Temp']) + ');')
+            print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['humi']) + ', ' + str(key['temp']) + ');')
             cur.execute('INSERT INTO Air_Condiction_A \
                         (Time_Stamp, Humi, Temp) \
                         VALUE \
@@ -223,7 +223,7 @@ def on_message(client, userdata, msg):
         key = json.loads(data)
         try:
             # Insert Air_Condiction Table
-            # print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['Humi']) + ', ' + str(key['Temp']) + ');')
+            print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['humi']) + ', ' + str(key['temp']) + ');')
             cur.execute('INSERT INTO Air_Condiction_B \
                         (Time_Stamp, Humi, Temp) \
                         VALUE \
