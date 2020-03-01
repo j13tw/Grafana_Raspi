@@ -215,7 +215,7 @@ def on_message(client, userdata, msg):
             cur.execute('INSERT INTO Air_Condiction_A \
                         (Time_Stamp, Humi, Temp) \
                         VALUE \
-                        ("' + str(time_stamp) + '", ' + str(key['Humi']) + ', ' + str(key['Temp']) + ');')
+                        ("' + str(time_stamp) + '", ' + str(key['humi']) + ', ' + str(key['temp']) + ');')
         except:
             print("Air_Condiction_A_ERROR")
     
@@ -227,7 +227,7 @@ def on_message(client, userdata, msg):
             cur.execute('INSERT INTO Air_Condiction_B \
                         (Time_Stamp, Humi, Temp) \
                         VALUE \
-                        ("' + str(time_stamp) + '", ' + str(key['Humi']) + ', ' + str(key['Temp']) + ');')
+                        ("' + str(time_stamp) + '", ' + str(key['humi']) + ', ' + str(key['temp']) + ');')
         except:
             print("Air_Condiction_B_ERROR")
 
