@@ -209,6 +209,7 @@ def on_message(client, userdata, msg):
                     str(nextBattery_Year_B) + ', ' + str(nextBattery_Mon_B) + ', ' + str(nextBattery_Day_B) + ');')
     if topic == "air-condition/A":
         key = json.loads(data)
+        print(key["humi"], key["temp"])
         try:
             # Insert Air_Condiction Table
             print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['humi']) + ', ' + str(key['temp']) + ');')
@@ -221,6 +222,7 @@ def on_message(client, userdata, msg):
     
     if topic == "air-condition/B":
         key = json.loads(data)
+        print(key["humi"], key["temp"])
         try:
             # Insert Air_Condiction Table
             print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['humi']) + ', ' + str(key['temp']) + ');')
