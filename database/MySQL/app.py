@@ -209,10 +209,10 @@ def on_message(client, userdata, msg):
                     str(nextBattery_Year_B) + ', ' + str(nextBattery_Mon_B) + ', ' + str(nextBattery_Day_B) + ');')
     if topic == "air_condiction/A":
         key = json.loads(data)
-        print(key["humi"], key["temp"])
+        # print(key["humi"], key["temp"])
         try:
             # Insert Air_Condiction Table
-            print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['humi']) + ', ' + str(key['temp']) + ');')
+            # print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['humi']) + ', ' + str(key['temp']) + ');')
             cur.execute('INSERT INTO Air_Condiction_A \
                         (Time_Stamp, Humi, Temp) \
                         VALUE \
@@ -222,10 +222,10 @@ def on_message(client, userdata, msg):
     
     if topic == "air_condiction/B":
         key = json.loads(data)
-        print(key["humi"], key["temp"])
+        # print(key["humi"], key["temp"])
         try:
             # Insert Air_Condiction Table
-            print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['humi']) + ', ' + str(key['temp']) + ');')
+            # print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['humi']) + ', ' + str(key['temp']) + ');')
             cur.execute('INSERT INTO Air_Condiction_B \
                         (Time_Stamp, Humi, Temp) \
                         VALUE \
