@@ -34,7 +34,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("ET7044/DOstatus")
     client.subscribe("current")
     client.subscribe("UPS_Monitor")
-    client.subscribe("air-conditioner-vent")
+    client.subscribe("air_condiction/#")
     client.subscribe("cabinet_A")
     client.subscribe("cabinet_B")
 
@@ -106,9 +106,9 @@ def on_message(client, userdata, msg):
             # Insert Power-Meter Table
             # print('INSERT INTO Power_Meter(Time_Stamp, Humi, Temp, Current) VALUE ("' + str(time_stamp) + '", ' + str(key['Humidity']) + ', ' + str(key['Temperature']) + ', ' + str(key['currents']) + ');')
             cur.execute('INSERT INTO Power_Meter \
-                    (Time_Stamp, Humi, Temp, Current) \
+                    (Time_Stamp, Humi, Temp, Current, Current_A, Current_B) \
                     VALUE \
-                    ("' + str(time_stamp) + '", ' + str(key['Humidity']) + ', ' + str(key['Temperature']) + ', ' + str(key['currents']) + ');')
+                    ("' + str(time_stamp) + '", ' + str(key['Humidity']) + ', ' + str(key['Temperature']) + ', ' + str(key['currents']) + ', ' + str(key['current_a']) + ', ' + str(key['current_b']) + ');')
         except:
             print("Power_Meter_ERROR")
 
@@ -207,17 +207,29 @@ def on_message(client, userdata, msg):
                     str(batteryVolt_B) + ', ' + str(batteryRemain_Percent_B) + ', "' + str(batteryHealth_B) + '", "' + str(batteryStatus_B) + '", "' + str(batteryCharge_Mode_B) + '", ' + str(batteryTemp_B) + ', ' +\
                     str(lastBattery_Year_B) + ', ' + str(lastBattery_Mon_B) + ', ' + str(lastBattery_Day_B) + ', ' + \
                     str(nextBattery_Year_B) + ', ' + str(nextBattery_Mon_B) + ', ' + str(nextBattery_Day_B) + ');')
-    if topic == "air-conditioner-vent":
+    if topic == "air-conditioner/A":
         key = json.loads(data)
         try:
             # Insert Air_Condiction Table
-            # print('INSERT INTO Air_Condiction(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['Humi']) + ', ' + str(key['Temp']) + ');')
-            cur.execute('INSERT INTO Air_Condiction \
+            # print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['Humi']) + ', ' + str(key['Temp']) + ');')
+            cur.execute('INSERT INTO Air_Condiction_A \
                         (Time_Stamp, Humi, Temp) \
                         VALUE \
                         ("' + str(time_stamp) + '", ' + str(key['Humi']) + ', ' + str(key['Temp']) + ');')
         except:
-            print("Air_Condiction_ERROR")
+            print("Air_Condiction_A_ERROR")
+    
+    if topic == "air-conditioner/B":
+        key = json.loads(data)
+        try:
+            # Insert Air_Condiction Table
+            # print('INSERT INTO Air_Condiction_A(Time_Stamp, Humi, Temp) VALUE ("' + str(time_stamp) + '", ' + str(key['Humi']) + ', ' + str(key['Temp']) + ');')
+            cur.execute('INSERT INTO Air_Condiction_B \
+                        (Time_Stamp, Humi, Temp) \
+                        VALUE \
+                        ("' + str(time_stamp) + '", ' + str(key['Humi']) + ', ' + str(key['Temp']) + ');')
+        except:
+            print("Air_Condiction_B_ERROR")
 
     if topic == "cabinet_A":
         key = json.loads(data)

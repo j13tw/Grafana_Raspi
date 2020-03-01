@@ -26,6 +26,8 @@ try:
                         Humi        float(5, 2) NOT NULL, \
                         Temp        float(5, 2) NOT NULL, \
                         Current     float(5, 2) NOT NULL, \
+                        Current_A   float(5, 2) NOT NULL, \
+                        Current_B   float(5, 2) NOT NULL, \
                         PRIMARY KEY(Count_Log));')
         print("Create Power_Meter Table")
     except:
@@ -88,14 +90,26 @@ try:
     except:
         print("Create ET7044 Table Fail !")
     try:
-        # Create Air_Condiction Table
-        cur.execute('CREATE TABLE Air_Condiction (\
+        # Create Air_Condiction_B Table
+        cur.execute('CREATE TABLE Air_Condiction_A (\
                         Count_Log   int AUTO_INCREMENT, \
                         Time_Stamp  datetime NOT NULL, \
                         Humi        float(5, 2) NOT NULL, \
                         Temp        float(5, 2) NOT NULL, \
                         PRIMARY KEY(Count_Log));')
-        print("Create Air_Condiction Table")
+        print("Create Air_Condiction_A Table")
+        conn.commit()
+    except:
+        print("Create Air_Condiction Table Fail !")
+    try:
+        # Create Air_Condiction_B Table
+        cur.execute('CREATE TABLE Air_Condiction_B (\
+                        Count_Log   int AUTO_INCREMENT, \
+                        Time_Stamp  datetime NOT NULL, \
+                        Humi        float(5, 2) NOT NULL, \
+                        Temp        float(5, 2) NOT NULL, \
+                        PRIMARY KEY(Count_Log));')
+        print("Create Air_Condiction_B Table")
         conn.commit()
     except:
         print("Create Air_Condiction Table Fail !")
