@@ -34,6 +34,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("air_condiction/#")
     client.subscribe("cabinet_A")
     client.subscribe("cabinet_B")
+    client.subscribe("waterTank")
 
 def on_message(client, userdata, msg):
     topic = msg.topic
@@ -230,6 +231,18 @@ def on_message(client, userdata, msg):
                         ("' + str(time_stamp) + '", ' + str(key['humi']) + ', ' + str(key['temp']) + ');')
         except:
             print("Air_Condiction_B_ERROR")
+
+    if topic == "waterTank":
+        key = json.loads(data)
+        try:
+            # Insert Water_Tank Table
+            # print('INSERT INTO Water_Tank (Time_Stamp, current) VALUE ("' + str(time_stamp) + '", ' + str(key['Current']) + ');')
+            cur.execute('INSERT INTO Water_Tank \
+                        (Time_Stamp, Current) \
+                        VALUE \
+                        ("' + str(time_stamp) + '", ' + str(key['current']) + ');')
+        except:
+            print("Water_Tank_ERROR")
 
     if topic == "cabinet_A":
         key = json.loads(data)

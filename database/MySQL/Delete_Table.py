@@ -66,8 +66,14 @@ try:
     except:
         print("Delete Air_Condiction_B Table Fail !")
     try:
+        # Delete Water_Trank Table
+        print("Delete Water_Tank Table")
+        cur.execute('DROP TABLE Water_Tank;')
+    except:
+        print("Delete Water_Tank Table Fail !")
+    try:
         # Delete Power_Box_A Table
-        print("Delete Air_Condiction Table")
+        print("Delete Power_Box_A Table")
         cur.execute('DROP TABLE Power_Box_A;')
     except:
         print("Delete Power_Box_A Table Fail !")

@@ -112,7 +112,18 @@ try:
         print("Create Air_Condiction_B Table")
         conn.commit()
     except:
-        print("Create Air_Condiction Table Fail !")
+        print("Create Air_Condiction_B Table Fail !")
+    try:
+        # Create Water_Trank Table
+        cur.execute('CREATE TABLE Water_Tank (\
+                        Count_Log   int AUTO_INCREMENT, \
+                        Time_Stamp  datetime NOT NULL, \
+                        Current     float(5, 2) NOT NULL, \
+                        PRIMARY KEY(Count_Log));')
+        print("Create Water_Tank Table")
+        conn.commit()
+    except:
+        print("Create Water_Tank Table Fail !")
     try:
         # Create Power_Box_A Table
         cur.execute('CREATE TABLE Power_Box_A (\
